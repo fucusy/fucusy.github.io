@@ -68,7 +68,7 @@
     // steps is array of string, [a1, b2]
     function init(steps){
         steps_len = steps.length;
-        for (i = 0; i < steps_len; i++) {
+        for (var i = 0; i < steps_len; i++) {
             x = steps[i].charCodeAt(0) - "a".charCodeAt(0);
             y = parseInt(steps[i].substring(1)) - 1;
             color = aiColor;
@@ -227,7 +227,7 @@
         thinking = true;
         $.ajax({
             type: "GET",
-            url: "https://e2a930db5e2e.ngrok.io/",
+            url: "https://e2a930db5e2e.ngrok.io",
             data: params,
             datatype: "json",
             success: function (data) {
