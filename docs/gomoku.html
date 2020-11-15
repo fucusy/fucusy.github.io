@@ -12,7 +12,7 @@
       gtag('config', 'G-9D2R56XSHB');
     </script>
     <meta charset="UTF-8">
-    <title>Gomuku</title>
+    <title>Gomoku</title>
     <script src="js/jquery.js"></script>
 </head>
 
@@ -23,11 +23,8 @@
     </div>
     <img src="pic/board.jpg" width="450px" height="450px">
     <div>
-        <button onclick="rollback();" type="button">悔棋</button>
-        <button onclick="start();" type="button">重新开始</button>
-    </div>
-    <div>
-        AI状态：<span id="progress"></span>
+        <button onclick="rollback();" type="button">悔棋 (BACK)</button>
+        <button onclick="start();" type="button">重新开始 (RESTART)</button>
     </div>
 </div>
 </body>
@@ -44,7 +41,6 @@
     var thinking = false;
     var historyStack = new Array();
     var aiColor = "BLACK";
-    var randomBegin = true;
     var rollbackTime = 0;
     var gameId = guid();
 
@@ -60,7 +56,6 @@
 
     //listen();
     start();
-    countRecord();
     function findGetParameter(parameterName) {
         var result = null,
             tmp = [];
@@ -229,8 +224,7 @@
             "stepsString": stepsString,
             "color": aiColor,
             "level": level,
-            "gameId": gameId,
-            "randomBegin": randomBegin
+            "gameId": gameId
         }
 
         thinking = true;
@@ -307,40 +301,6 @@
         }
     }
 
-    function countRecord(){
-        var params = {
-            "key": "gomoku"
-        }
-
-        $.ajax({
-            type: "POST",
-            url: "../api/record/count",
-            data: params,
-            datatype: "json",
-            async: false,
-            success: function (data) {
-            },
-            error: function () {
-            }
-        });
-    }
-
-    function selectEasy() {
-        level = "EASY";
-    }
-
-    function selectNormal() {
-        level = "NORMAL";
-    }
-
-    function selectHigh() {
-        level = "HIGH";
-    }
-
-    function modifyBegin(){
-        randomBegin = !randomBegin;
-    }
-
     function listen() {
         setInterval(function () {
             if (!thinking) {
@@ -380,9 +340,5 @@
         });
     }
 
-
-
-
 </script>
-
 </html>
