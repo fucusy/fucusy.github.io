@@ -39,6 +39,7 @@
     <hr/>
     Notes
     <div>
+        <li>2022-06-05: Support white put move far away from existing move on first and second step.</li>
         <li>The service is up, the below issue caused by https://github.com/fucusy/gomoku-first-move-always-win/pull/3 deployment was fixed on 2022-02-02. Auto deployment script will be done to avoid such similar issue. note date: 2022-02-02</li>
         <li>The service is down, will fix this in one week before 2022-02-07, find me on github if anything is urgent. note date: 2022-02-01</li>
     </div>
@@ -257,7 +258,7 @@
         thinking = true;
         $.ajax({
             type: "GET",
-            url: "http://81.70.152.141:8081",
+            url: "http://81.70.152.141:8080",
             data: params,
             datatype: "json",
             success: function (data) {
