@@ -44,6 +44,14 @@
         <br/>
     </div>
     <hr/>
+    <b>Please donate 2 chinese yuan to support 1 day of the app's life. Thanks.</b>
+    <div> <img src="pic/2_yuan_donation_qr_code.jpg" width="250px"> </div>
+
+    <ul>
+        <li id="collected-money"></li>
+        <b><li id="continue-service-condition"></li></b>
+    </ul>
+    <hr/>
     <div>
         This project is built by <b><a target="_blank" href="http://qiangchen.org">qiangchen.org</a></b> and open sourced in <a target="_blank" href="https://github.com/fucusy/gomoku-first-move-always-win">Github fucusy/gomoku-first-move-always-win</a>
     </div>
@@ -57,6 +65,7 @@
     <hr/>
     Notes
     <div>
+        <li>2023-09-21: 2259 chinese yuan was used to extend server to 2026-10-30. The same amount money needs to be raised to extend the server next time in 3 years. Fund raise is added in the website.</li>
         <li>2022-06-05: Support white put move far away from existing move on first and second step.</li>
         <li>The service is up, the below issue caused by https://github.com/fucusy/gomoku-first-move-always-win/pull/3 deployment was fixed on 2022-02-02. Auto deployment script will be done to avoid such similar issue. note date: 2022-02-02</li>
         <li>The service is down, will fix this in one week before 2022-02-07, find me on github if anything is urgent. note date: 2022-02-01</li>
@@ -354,6 +363,33 @@
             return v.toString(16);
         });
     }
+
+    // Update the statement of service end
+    // Get the current date
+
+    function donationData() {
+        let currentDate = new Date();
+        // Get the future date - October 20, 2026
+        let futureDate = new Date("2026-10-20");
+
+        // Calculate the difference in milliseconds
+        let differenceInMilliseconds = futureDate - currentDate;
+
+        // Convert the difference to days
+        // (1000 milliseconds in a second, 60 seconds in a minute, 60 minutes in an hour, 24 hours in a day)
+        let differenceInDays = Math.ceil(differenceInMilliseconds / (1000 * 60 * 60 * 24));
+
+
+        let collectedMoney = 2;
+        let totalMoney = 2259;
+        let needMore = totalMoney - collectedMoney;
+
+        document.getElementById('continue-service-condition').innerText = needMore + ' chinese yuan needs to be collected otherwise the website will die in ' + differenceInDays + ' days.';
+        document.getElementById('collected-money').innerText = collectedMoney + ' chinese yuan has been collected since 2023-09-24.';
+
+    }
+    donationData()
+
 
 </script>
 </html>
