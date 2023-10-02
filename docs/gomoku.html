@@ -26,16 +26,17 @@
         <button onclick="start();" type="button">重新开始 (RESTART)</button>
     </div>
     <hr/>
-    <div>
-        <b><li id="collected-money">The AI is out of service due to end of cloud server, contact fucus.me@gmail.com if you want to support it.</li></b>
-        <br/>
-    </div>
+
     <div>
         <a href="?person2person=true">玩家对战 (Play with Player)</a>
         <br/>
         <a href="?">人机对战 (Play with AI)</a>
     </div>
     <div>
+        <br/>
+        <b><li id="collected-money">The AI could be out of service, contact fucus.me@gmail.com if you want to support it.</li></b>
+        <br/>
+    </div>
     <div>
         <h2>ByteDance AI Gomoku - The Ultimate Five-in-a-Row AI</h2>
         <span>
@@ -62,7 +63,8 @@
     <hr/>
     Notes
     <div>
-        <b><li>2023-09-21: The AI is out of service due to end of cloud server, contact fucus.me@gmail.com if you want to support it.</li></b>
+        <li>2023-10-01: The AI is back using personal laptop as the server plus free port forwarding service from https://portmap.io/. The service could be shutdown anytime, contact fucus.me@gmail.com if you want to support it.</li>
+        <li>2023-09-21: The AI is out of service due to end of cloud server, contact fucus.me@gmail.com if you want to support it.</li>
         <li>2022-06-05: Support white put move far away from existing move on first and second step.</li>
         <li>The service is up, the below issue caused by https://github.com/fucusy/gomoku-first-move-always-win/pull/3 deployment was fixed on 2022-02-02. Auto deployment script will be done to avoid such similar issue. note date: 2022-02-02</li>
         <li>The service is down, will fix this in one week before 2022-02-07, find me on github if anything is urgent. note date: 2022-02-01</li>
@@ -283,7 +285,7 @@
         thinking = true;
         $.ajax({
             type: "GET",
-            url: "http://81.70.152.141:8080",
+            url: "http://fucusme-25881.portmap.host:25881/",
             data: params,
             datatype: "json",
             success: function (data) {
