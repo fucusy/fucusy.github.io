@@ -74,6 +74,12 @@
 </div>
 </body>
 <script>
+    // force to use unsecure http because the web has to access unsecure http API
+    if (location.protocol == 'https:') {
+        location.replace(`http:${location.href.substring(location.protocol.length)}`);
+    }
+
+
     var steps_string = "h8";
     var person2person = false;
     var init_steps = findGetParameter("init_steps");
