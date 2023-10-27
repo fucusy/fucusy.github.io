@@ -4,9 +4,13 @@
 <head>
     <script>
     // force to use unsecure http because the web has to access unsecure http API
-    if (location.protocol == 'https:') {
-        location.replace(`http:${location.href.substring(location.protocol.length)}`);
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        if (location.protocol == 'https:') {
+            let httpUrl = `http:${location.href.substring(location.protocol.length)}`;
+            console.log(httpUrl);
+            document.body.innerHTML = `The website does not support https, please visit <a href=${httpUrl}>${httpUrl}</a>`;
+        }
+    });
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D2R56XSHB"></script>
