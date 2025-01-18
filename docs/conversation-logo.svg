@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+  <!-- Speech Bubble -->
+  <path d="M10 40 C10 25, 25 15, 40 15 H70 C85 15, 95 25, 95 40 V60 C95 75, 80 85, 65 85 H30 L15 95 L20 80 C15 75, 10 65, 10 60 Z" 
+        fill="#4CAF50" stroke="#388E3C" stroke-width="2"/>
+
+  <!-- Smiling Face -->
+  <circle cx="40" cy="50" r="5" fill="#FFFFFF"/>
+  <circle cx="60" cy="50" r="5" fill="#FFFFFF"/>
+  <path d="M40 65 Q50 75, 60 65" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+
+  <!-- Subtle E Shape -->
+  <path d="M70 40 H85 M70 50 H80 M70 60 H85" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
