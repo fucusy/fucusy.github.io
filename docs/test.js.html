@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Test with jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<script>
+    $(document).ready(function() {
+        $.ajax({
+            url: "http://fucusme-25881.portmap.host:25881/?stepsString=h8_h9", // Replace with the URL you want to test
+            type: 'GET',
+            success: function(data) {
+                console.log('Success:', data);
+            },
+            error: function(error) {
+                console.error('Error:', error);
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
