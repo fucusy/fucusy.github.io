@@ -45,6 +45,71 @@
         <br/>
         <br/>
     </div>
+
+    <!-- ===================== Android closed-testing recruitment =====================
+      HOW TO RECEIVE RESPONSES: point the <form action> below at your own endpoint.
+        Option A (no signup): FormSubmit.co — replace REPLACE_WITH_YOUR_EMAIL with your email.
+          The first submission triggers a one-time confirmation email to activate the form.
+          To avoid showing your address publicly, activate once, then swap in the hashed URL
+          FormSubmit returns (https://formsubmit.co/<random-token>).
+        Option B: create a Google Form and link/embed it instead of this form.
+    -->
+    <hr/>
+    <div id="android-beta" style="max-width:640px;margin:16px auto;padding:20px;border:2px solid #d0a800;border-radius:12px;background:#fff8e1;text-align:left;">
+        <h2 style="margin-top:0;">📱 Android Beta — Become a Tester / 安卓公测招募</h2>
+        <p>
+            We're bringing <b>Gomoku (五子棋 · 黑棋AI)</b> to Android and need <b>12 testers for 14 days</b>
+            to launch on Google Play. Testers get early access and help ship the release.<br/>
+            我们正在把五子棋带到安卓平台，需要 <b>12 位测试员、连续 14 天</b>才能在 Google Play 正式上线。
+        </p>
+        <p style="font-size:0.92em;color:#555;">
+            How it works: give us the <b>Google account (Gmail)</b> you use on your Android phone.
+            We'll add you to the closed test and email you an opt-in + Play Store install link — then
+            just play a few games over the two weeks.<br/>
+            流程：填写你安卓手机上登录的 Google 账号（Gmail），我们会把你加入封闭测试并发送安装链接，14 天内偶尔玩几局即可。
+        </p>
+        <p style="font-size:0.92em;color:#555;">
+            📧 You'll receive a setup email from <b>qiang@hula.ai</b> with your install link —
+            please add it to your contacts and check your spam folder if you don't see it.<br/>
+            你会收到一封来自 <b>qiang@hula.ai</b> 的设置邮件（内含安装链接），请将其加入联系人；如未收到，请检查垃圾邮件。
+        </p>
+        <form action="https://formsubmit.co/qiang@hula.ai" method="POST">
+            <input type="hidden" name="_subject" value="New Gomoku Android tester">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            <!-- honeypot: bots fill this, humans don't -->
+            <input type="text" name="_honey" style="display:none">
+
+            <p style="margin:10px 0;">
+                <label>Name / 称呼<br/>
+                    <input type="text" name="name" style="width:100%;padding:8px;box-sizing:border-box;">
+                </label>
+            </p>
+            <p style="margin:10px 0;">
+                <label>Google account email (Gmail) / Google 账号邮箱 <span style="color:#c00;">*</span><br/>
+                    <input type="email" name="email" required placeholder="you@gmail.com" style="width:100%;padding:8px;box-sizing:border-box;">
+                </label>
+            </p>
+            <p style="margin:10px 0;">
+                <label>Android phone &amp; version — optional / 手机型号与安卓版本（可选）<br/>
+                    <input type="text" name="device" placeholder="e.g. Pixel 8, Android 15" style="width:100%;padding:8px;box-sizing:border-box;">
+                </label>
+            </p>
+            <p style="margin:10px 0;">
+                <label>Anything else? — optional / 备注（可选）<br/>
+                    <textarea name="message" rows="3" style="width:100%;padding:8px;box-sizing:border-box;"></textarea>
+                </label>
+            </p>
+            <button type="submit" style="padding:10px 22px;font-size:1em;background:#d0a800;color:#000;border:none;border-radius:8px;cursor:pointer;">
+                Sign me up / 报名参加
+            </button>
+        </form>
+        <p style="font-size:0.8em;color:#777;margin-bottom:0;">
+            Your email is used only to add you to the Google Play closed test. No spam. /
+            邮箱仅用于加入 Google Play 封闭测试，不会用于其他用途。
+        </p>
+    </div>
+
     <hr/>
     <div>
         This project is built by <b><a target="_blank" href="http://qiangchen.org">qiangchen.org</a></b> and open sourced in <a target="_blank" href="https://github.com/fucusy/gomoku-first-move-always-win">Github fucusy/gomoku-first-move-always-win</a>.  <br/>
