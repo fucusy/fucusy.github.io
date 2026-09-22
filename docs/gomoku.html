@@ -2,140 +2,466 @@
 <html lang="en">
 
 <head>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9D2R56XSHB"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-9D2R56XSHB');
-    </script>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="apple-itunes-app" content="app-id=6449686713">
+    <meta name="description" content="Play Gomoku (Five-in-a-Row) against a strong AI in your browser. Free, no sign-up, works on phone and desktop.">
+    <meta name="theme-color" content="#d79b34">
     <title>ByteDance AI Gomoku</title>
-    <script src="js/jquery.js"></script>
+    <!-- the app icon, inlined so the tab icon costs no extra request -->
+    <link rel="icon" type="image/png" sizes="48x48" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAMAAABg3Am1AAAB/lBMVEX4qCjomAj+tjYJCAcWFRDViATzoRrr5trKyMPY1cv7+fMAAADIxLrXlSosJBXekAI3NTDh3dLUto+2dgnFvbQpKCW9wcNWVE/y7eL/wT35tE39xkFoZVwkGgvGfQJPORS6tKhsamOZlYmjaAVHQTT/qgCYZAqhnJCqpZnlnCiIhHmHVQXyum26iC3mp0z/qlXYq25qShSPjIH//wB4dGpiXlaxfSj1ohbHewCzrqHbpDb//1VOS0NBPDLPgQDtmxr6tzvPgQHJegD2pCnJiyXyoiHxngz/405aQRfQgQDtuXf4ohfyoRP3pRyqVQD9tVTnu4DLfgD7qyr3qCf/rCzLmEz/0EXFljT/10j/0EX/0Uf0nxfsmwrznRC9kjP//1zijQHeokpiSh//wkXTgwD/y0TGro6AfHLVvJ29vsE3MCFILwefeCoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2KU8jAAAAqnRSTlP+/v////7+//7//wD+/v7//v/+//3+/v7///39///8/v/+///+A////v///////wP///8B////KSj//wP//5QsNdNMKv9M00z/N5NNk6kDqf+tla3U/yGprdT7S5Wt/yT//5M3qZX//9P70///AAAAAAAAAAAAAAAAAAAAAAAAAP///////////////////////////////////////////////////////2DyoqMAAAOUSURBVHjafZZne9s2EIAPJMEhkBSXJrWlyJJleTuOXWenSbpXRvfe7f//3ANAUoDU5B7J/vK+uANwuEfAGHuHsV9+/juKGpYV/pvnhhLd7kGS8fjz/QeMHSEMnP/h9ezmfLLfm4WmGQaK0T3IXNfzXAw/+eSSG4D8syBqLVzP3+tFlmWa686G913PabcdVPym3/0ADThiz64b45HnOO5iHIUomEFpHPieU+Mhjaz7DTuCs1f5sDXycJns9CLqcyEsE/heuyaFGOvymwlcngH78vvGHuf9Se9ug5dkmrdlik9duX6t1pbGX93vGDz4etYaxY5X8MIYdvQENccRRjOx78NveTge+f7VaQ83UAgWCMGNqwQY/LAy+Ba+gnC8WEz+aBW8qCkQW64q4jymcP3s8CnA2mrt759XvNzEdRAEx6XgVIL7kkJ+bUWt1k1kWZaaAQC6heAowk8EcqNvNaKGpQp9UDbdLgR+TBmgkD83LUvjzecGYAqDX3MVsdj0koCRr/m5qLy5FgIk2EexwuPNEQIdIx8KasMPOS02wTsvjp0Ycd4cWJEQQHJlWFAIkDS5IYM30zHhAhqBavSDkpdG0d8+FrQUAp5HB4YVP4QNL7YhHgPiI8ETkI3ZWZ/0+eonTwyVt+3DJGs23WYzSw4JUQQDK4PbS0PDhQKHx8nvyXGBbwQeyx0ceTwYQkkVdVUIYNuwt4W6Luzw+CGqUK/TrQxb69uCrwTkt4T/wW27ns4HXKkT5N8sSN4m6cld7OX+P3NMRN8iFMvTYTQ+LSZcSnQBINjh07C151cTbk5UAVShXD/sXeGT8BbnMzHheA7Y8BuhPB4+4RwxseRI7G8ygCoUuD1tTDjv7o1nDflWVqQQJPhE44ktEsR+wYshWmQoVg40ntTFhBtNepIXbybVSkrL+qstL64m+xfqhJv+CEEVaTgPqBJTnHCnWxNuNVDuajmnoPQxSXHCXdxUvBDmVO3oOthVv/GWs3YmHN+DElShxTXsTDh+Sm8R5sqAk3PlhA7gRVWSTYnGExJuTbj+gD6Ez43qfqmO47ZNPaaU3oPH8CYBH9pU41d41neAfWGUF6wL/D2SNNxMxCkd0M8YnD0ueG2aSB4NupJKiMsPMMEZ3GLvlv1Dd3ihDKaraUoF/4h9DIwbtj5NFF7EoPg+Qhh/nNxi9z+y9ZJ0nqbi7693EOUC/3f54VNNoNvCw3vvCZD9B3rEXHqP88dEAAAAAElFTkSuQmCC">
+    <link rel="apple-touch-icon" href="pic/gomoku-icon-180.png">
+    <link rel="preconnect" href="https://gomoku.hula.ai" crossorigin>
+
+    <style>
+        :root {
+            --bg: #f7f4ee;
+            --fg: #1c1a15;
+            --muted: #625c50;
+            --card: #ffffff;
+            --line: #e6e0d3;
+            --accent: #c8951f;
+            --accent-ink: #3a2a03;
+            --board-a: #f0c56a;
+            --board-b: #d79b34;
+            --grid: #3a3227;
+            --shadow: 0 1px 2px rgba(0,0,0,.05), 0 6px 20px rgba(0,0,0,.06);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #16150f;
+                --fg: #f2efe6;
+                --muted: #a9a294;
+                --card: #201e17;
+                --line: #35322a;
+                --accent: #e0ae3c;
+                --accent-ink: #2a1f05;
+                --shadow: 0 1px 2px rgba(0,0,0,.4), 0 6px 20px rgba(0,0,0,.35);
+            }
+        }
+
+        * { box-sizing: border-box; }
+
+        html { -webkit-text-size-adjust: 100%; }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font: 16px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                  "Helvetica Neue", "PingFang SC", "Hiragino Sans GB",
+                  "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        .wrap {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 16px 48px;
+        }
+
+        h1 {
+            font-size: 1.45rem;
+            line-height: 1.3;
+            margin: 0 0 4px;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            margin: 0 0 10px;
+        }
+
+        p { margin: 0 0 12px; }
+
+        a { color: #a8760c; }
+
+        @media (prefers-color-scheme: dark) { a { color: var(--accent); } }
+
+        .sub {
+            color: var(--muted);
+            font-size: .95rem;
+            margin: 0 0 20px;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 14px;
+            padding: 16px;
+            margin: 0 0 20px;
+            box-shadow: var(--shadow);
+        }
+
+        /* ---------- mode switch ---------- */
+        .modes {
+            display: flex;
+            gap: 6px;
+            background: var(--bg);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            padding: 4px;
+            margin: 0 0 14px;
+        }
+
+        .modes a {
+            flex: 1 1 0;
+            text-align: center;
+            padding: 9px 6px;
+            border-radius: 8px;
+            font-size: .95rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--muted);
+        }
+
+        .modes a.on {
+            background: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        /* ---------- status ---------- */
+        #status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-height: 26px;
+            margin: 0 0 12px;
+            font-size: .98rem;
+            font-weight: 600;
+        }
+
+        #status .dot {
+            width: 14px;
+            height: 14px;
+            flex: none;
+            border-radius: 50%;
+            border: 1px solid rgba(0,0,0,.35);
+        }
+
+        #status .dot.black { background: #17150f; }
+        #status .dot.white { background: #f4f2ec; }
+        #status .dot.none  { display: none; }
+        #status.win { color: #1a7f45; }
+        #status.err { color: #b3261e; }
+
+        /* ---------- board ---------- */
+        .board {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--board-a), var(--board-b));
+            box-shadow: 0 2px 6px rgba(0,0,0,.18), inset 0 0 0 1px rgba(0,0,0,.28);
+            touch-action: manipulation;
+            overflow: hidden;
+        }
+
+        .board::before { content: ""; display: block; padding-bottom: 100%; }
+
+        .board svg,
+        .board .cells {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .board.busy { cursor: progress; }
+
+        .cell {
+            position: absolute;
+            width: 6.35%;
+            height: 6.35%;
+            margin: -3.175% 0 0 -3.175%;
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .cell::before {
+            content: "";
+            position: absolute;
+            top: 7%; right: 7%; bottom: 7%; left: 7%;
+            border-radius: 50%;
+        }
+
+        .cell[data-tag="B"]::before {
+            background: radial-gradient(circle at 33% 28%, #9a9a96 0%, #3a3a37 34%, #050505 100%);
+            box-shadow: 0 1px 2px rgba(0,0,0,.5);
+        }
+
+        .cell[data-tag="W"]::before {
+            background: radial-gradient(circle at 33% 28%, #ffffff 0%, #f4f2ea 42%, #c3bfb4 100%);
+            box-shadow: 0 1px 2px rgba(0,0,0,.4);
+        }
+
+        .cell.last::after {
+            content: "";
+            position: absolute;
+            top: 39%; right: 39%; bottom: 39%; left: 39%;
+            border-radius: 50%;
+            background: #e2402f;
+            box-shadow: 0 0 0 1px rgba(255,255,255,.55);
+        }
+
+        /* only hint empty points on devices with a real pointer */
+        @media (hover: hover) {
+            .cell:not([data-tag])::before {
+                background: rgba(0,0,0,.16);
+                opacity: 0;
+                transition: opacity .12s;
+            }
+            .cell:not([data-tag]):hover::before { opacity: 1; }
+            .board.busy .cell:not([data-tag]):hover::before { opacity: 0; }
+        }
+
+        /* ---------- buttons ---------- */
+        .controls {
+            display: flex;
+            gap: 10px;
+            margin: 14px 0 0;
+        }
+
+        button {
+            flex: 1 1 0;
+            min-height: 46px;
+            padding: 10px 14px;
+            font: inherit;
+            font-weight: 600;
+            color: var(--fg);
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 11px;
+            cursor: pointer;
+        }
+
+        button:hover { border-color: var(--accent); }
+        button:active { transform: translateY(1px); }
+
+        button.primary {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--accent-ink);
+        }
+
+        /* ---------- android beta ---------- */
+        #android-beta {
+            border: 2px solid var(--accent);
+            background: linear-gradient(180deg, rgba(200,149,31,.10), rgba(200,149,31,.02));
+        }
+
+        #android-beta h2 { font-size: 1.3rem; }
+        #android-beta .lead { font-size: 1.05rem; }
+        #android-beta ol { margin: 0 0 12px; padding-left: 22px; }
+        #android-beta li { margin-bottom: 4px; }
+
+        .field { margin: 0 0 14px; }
+
+        .field label {
+            display: block;
+            font-size: .95rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .field .opt { font-weight: 400; color: var(--muted); }
+
+        input[type=text], input[type=email], textarea {
+            width: 100%;
+            padding: 11px 12px;
+            /* 16px keeps iOS Safari from zooming in on focus */
+            font-family: inherit;
+            font-size: 16px;
+            line-height: 1.4;
+            color: var(--fg);
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 10px;
+        }
+
+        input:focus, textarea:focus {
+            outline: 2px solid var(--accent);
+            outline-offset: 1px;
+            border-color: var(--accent);
+        }
+
+        textarea { resize: vertical; }
+
+        .req { color: #b3261e; }
+
+        .note { font-size: .9rem; color: var(--muted); }
+
+        button.signup { width: 100%; flex: none; font-size: 1.05rem; }
+
+        /* ---------- app links ---------- */
+        .apps {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .apps img { display: block; }
+        .app-icon img { width: 96px; height: 96px; border-radius: 22%; }
+        .app-badge img { width: 180px; height: 60px; border-radius: 9px; }
+
+        footer {
+            font-size: .92rem;
+            color: var(--muted);
+            text-align: center;
+        }
+
+        /* keep the whole board visible on short landscape screens */
+        @media (orientation: landscape) and (max-height: 620px) {
+            .board { max-width: 74vh; }
+        }
+    </style>
 </head>
 
 <body>
-    <img id="hint" src="pic/line.png" hidden="hidden">
-    <div id="cubes">
-    </div>
-    <img src="pic/board.jpg" width="450px" height="450px">
-    <div>
-        <button onclick="rollback();" type="button">悔棋 (BACK)</button>
-        <button onclick="start();" type="button">重新开始 (RESTART)</button>
-    </div>
-    <hr/>
+<div class="wrap">
 
-    <div>
-        <a href="?person2person=true">玩家对战 (Play with Player)</a>
-        <br/>
-        <a href="?">人机对战 (Play with AI)</a>
+    <h1>ByteDance AI Gomoku</h1>
+    <p class="sub">Five-in-a-Row against a strong AI. Free, no sign-up. 五子棋 · 人机对战</p>
+
+    <div class="card">
+        <nav class="modes">
+            <a id="mode-ai" href="?">Play the AI<br><span style="font-weight:400;font-size:.85em;">人机对战</span></a>
+            <a id="mode-pvp" href="?person2person=true">Two players<br><span style="font-weight:400;font-size:.85em;">玩家对战</span></a>
+        </nav>
+
+        <p id="status"><span class="dot none"></span><span id="status-text">Loading…</span></p>
+
+        <div class="board" id="board">
+            <svg id="grid" viewBox="0 0 450 450" aria-hidden="true" focusable="false"></svg>
+            <div class="cells" id="cubes" role="group" aria-label="Gomoku board"></div>
+        </div>
+
+        <div class="controls">
+            <button type="button" id="btn-back">悔棋 · Undo</button>
+            <button type="button" id="btn-restart" class="primary">重新开始 · Restart</button>
+        </div>
     </div>
-    <div>
-        <h2>ByteDance AI Gomoku - The Ultimate Five-in-a-Row AI</h2>
-        <span>
-        Welcome to ByteDance AI Gomoku (http://www.bytedance.ai/gomoku.html), Play against our advanced AI, which has been trained using the latest machine learning techniques to provide an immersive and challenging experience for players of all skill levels. <br/><br/>
 
-        Join us and test your strategic prowess in this ancient board game, also known as Five-in-a-Row, where the objective is to form an unbroken line of five stones of your color, horizontally, vertically, or diagonally. <br/><br/>
-
-        Are you ready for the ByteDance AI Gomoku challenge?
-        </span>
-        <br/>
-        <br/>
+    <div class="card">
+        <h2>About this game</h2>
+        <p>Gomoku, also called Five-in-a-Row, is an old board game with one simple goal:
+            be the first to get <b>five of your stones in a row</b> — across, down, or diagonally.</p>
+        <p style="margin-bottom:0;">You play the white stones. The AI plays black and moves first.
+            Tap any spot on the board to place a stone.</p>
     </div>
 
     <!-- ===================== Android closed-testing recruitment =====================
       HOW TO RECEIVE RESPONSES: point the <form action> below at your own endpoint.
-        Option A (no signup): FormSubmit.co — replace REPLACE_WITH_YOUR_EMAIL with your email.
+        Option A (no signup): FormSubmit.co — replace the address in <form action> with your email.
           The first submission triggers a one-time confirmation email to activate the form.
           To avoid showing your address publicly, activate once, then swap in the hashed URL
           FormSubmit returns (https://formsubmit.co/<random-token>).
         Option B: create a Google Form and link/embed it instead of this form.
     -->
-    <hr/>
-    <div id="android-beta" style="max-width:640px;margin:16px 0;padding:20px;border:2px solid #d0a800;border-radius:12px;background:#fff8e1;text-align:left;">
-        <h2 style="margin-top:0;">📱 Android Beta — Become a Tester / 安卓公测招募</h2>
-        <p>
-            We're bringing <b>Gomoku (五子棋 · 黑棋AI)</b> to Android and need <b>12 testers for 14 days</b>
-            to launch on Google Play. Testers get early access and help ship the release.<br/>
-            我们正在把五子棋带到安卓平台，需要 <b>12 位测试员、连续 14 天</b>才能在 Google Play 正式上线。
-        </p>
-        <p style="font-size:0.92em;color:#555;">
-            How it works: give us the <b>Google account (Gmail)</b> you use on your Android phone.
-            We'll add you to the closed test and email you an opt-in + Play Store install link — then
-            just play a few games over the two weeks.<br/>
-            流程：填写你安卓手机上登录的 Google 账号（Gmail），我们会把你加入封闭测试并发送安装链接，14 天内偶尔玩几局即可。
-        </p>
-        <p style="font-size:0.92em;color:#555;">
-            📧 You'll receive a setup email from <b>qiang@hula.ai</b> with your install link —
-            please add it to your contacts and check your spam folder if you don't see it.<br/>
-            你会收到一封来自 <b>qiang@hula.ai</b> 的设置邮件（内含安装链接），请将其加入联系人；如未收到，请检查垃圾邮件。
-        </p>
+    <div class="card" id="android-beta">
+        <h2>📱 Help us test the phone app</h2>
+        <p class="lead">We made this game into an app for Android phones.
+            Before everyone can get it, <b>12 people need to try it for 14 days</b>.
+            Want to be one of them? It's free.</p>
+        <p class="lead"><b>First come, first served.</b> We only need 12 people.</p>
+        <p class="lead" style="margin-bottom:6px;">Here is all you do:</p>
+        <ol class="lead">
+            <li>Fill in the form below.</li>
+            <li>We email you a link to get the app.</li>
+            <li>Play a few games over the next 2 weeks. That's it.</li>
+        </ol>
+        <p class="note">📧 The email comes from <b>qiang@hula.ai</b>. If you don't see it, please look in your spam folder.</p>
+
         <form action="https://formsubmit.co/qiang@hula.ai" method="POST">
             <input type="hidden" name="_subject" value="New Gomoku Android tester">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <!-- honeypot: bots fill this, humans don't -->
-            <input type="text" name="_honey" style="display:none">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
 
-            <p style="margin:10px 0;">
-                <label>Name / 称呼<br/>
-                    <input type="text" name="name" style="width:100%;padding:8px;box-sizing:border-box;">
-                </label>
-            </p>
-            <p style="margin:10px 0;">
-                <label>Google account email (Gmail) / Google 账号邮箱 <span style="color:#c00;">*</span><br/>
-                    <input type="email" name="email" required placeholder="you@gmail.com" style="width:100%;padding:8px;box-sizing:border-box;">
-                </label>
-            </p>
-            <p style="margin:10px 0;">
-                <label>Android phone &amp; version — optional / 手机型号与安卓版本（可选）<br/>
-                    <input type="text" name="device" placeholder="e.g. Pixel 8, Android 15" style="width:100%;padding:8px;box-sizing:border-box;">
-                </label>
-            </p>
-            <p style="margin:10px 0;">
-                <label>Anything else? — optional / 备注（可选）<br/>
-                    <textarea name="message" rows="3" style="width:100%;padding:8px;box-sizing:border-box;"></textarea>
-                </label>
-            </p>
-            <button type="submit" style="padding:10px 22px;font-size:1em;background:#d0a800;color:#000;border:none;border-radius:8px;cursor:pointer;">
-                Sign me up / 报名参加
-            </button>
+            <div class="field">
+                <label for="f-name">Your name</label>
+                <input id="f-name" type="text" name="name" autocomplete="name">
+            </div>
+            <div class="field">
+                <label for="f-email">The Gmail address you use on your phone <span class="req">*</span></label>
+                <input id="f-email" type="email" name="email" required placeholder="you@gmail.com"
+                       autocomplete="email" inputmode="email" autocapitalize="off" spellcheck="false">
+            </div>
+            <div class="field">
+                <label for="f-device">What phone do you have? <span class="opt">(you can skip this)</span></label>
+                <input id="f-device" type="text" name="device" placeholder="e.g. Pixel 8">
+            </div>
+            <div class="field">
+                <label for="f-msg">Anything you want to tell us? <span class="opt">(you can skip this)</span></label>
+                <textarea id="f-msg" name="message" rows="3"></textarea>
+            </div>
+            <button type="submit" class="primary signup">Sign me up</button>
         </form>
-        <p style="font-size:0.8em;color:#777;margin-bottom:0;">
-            Your email is used only to add you to the Google Play closed test. No spam. /
-            邮箱仅用于加入 Google Play 封闭测试，不会用于其他用途。
-        </p>
+        <p class="note" style="margin:12px 0 0;">We only use your email to send you the app. No spam.</p>
     </div>
 
-    <hr/>
-    <div>
-        This project is built by <b><a target="_blank" href="http://qiangchen.org">qiangchen.org</a></b> and open sourced in <a target="_blank" href="https://github.com/fucusy/gomoku-first-move-always-win">Github fucusy/gomoku-first-move-always-win</a>.  <br/>
-
-The author also offers English Learning Tool <b><a target="_blank" href="https://www.hula.ai?utm_source=bytedance.ai">hula.ai</a></b> for free in limited time.
+    <div class="card">
+        <h2>Play on iPhone and iPad</h2>
+        <p>The app runs the game on your device, so it keeps working even if this website is down.</p>
+        <div class="apps">
+            <a class="app-icon" href="https://apps.apple.com/cn/app/%E4%BA%94%E5%AD%90%E6%A3%8B-%E9%BB%91%E6%A3%8Bai/id6449686713?itscg=30200&amp;itsct=apps_box_appicon">
+                <img src="https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/6b/71/13/6b711320-a291-c1c0-1702-eb403fe71fdd/AppIcon-1x_U007epad-85-220.png/192x192bb.jpg"
+                     alt="五子棋（黑棋Ai）" width="96" height="96" loading="lazy" decoding="async">
+            </a>
+            <a class="app-badge" href="https://apps.apple.com/cn/app/%E4%BA%94%E5%AD%90%E6%A3%8B-%E9%BB%91%E6%A3%8Bai/id6449686713?itsct=apps_box_badge&amp;itscg=30200">
+                <img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1686009600"
+                     alt="Download on the App Store" width="180" height="60" loading="lazy" decoding="async">
+            </a>
+        </div>
     </div>
-<hr/>
-If the web service is down, please install the app to your iPhone and iPad to play the game locally.
-<hr/>
-     Play with the AI on your iPhone and iPad with better user experience
-    <br/>
-    <br/>
-    <a href="https://apps.apple.com/cn/app/%E4%BA%94%E5%AD%90%E6%A3%8B-%E9%BB%91%E6%A3%8Bai/id6449686713?itscg=30200&amp;itsct=apps_box_appicon" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"><img src="https://is2-ssl.mzstatic.com/image/thumb/Purple116/v4/6b/71/13/6b711320-a291-c1c0-1702-eb403fe71fdd/AppIcon-1x_U007epad-85-220.png/540x540bb.jpg" alt="五子棋（黑棋Ai）" style="width: 170px; height: 170px; border-radius: 22%; overflow: hidden; display: inline-block; vertical-align: middle;"></a>
-    <a href="https://apps.apple.com/cn/app/%E4%BA%94%E5%AD%90%E6%A3%8B-%E9%BB%91%E6%A3%8Bai/id6449686713?itsct=apps_box_badge&amp;itscg=30200" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1686009600" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+
+    <footer>
+        <p>Built by <a target="_blank" rel="noopener" href="http://qiangchen.org">qiangchen.org</a> ·
+            open source on <a target="_blank" rel="noopener" href="https://github.com/fucusy/gomoku-first-move-always-win">GitHub</a></p>
+        <p style="margin-bottom:0;">The author also makes <a target="_blank" rel="noopener" href="https://www.hula.ai?utm_source=bytedance.ai">hula.ai</a>,
+            an English learning tool — free for a limited time.</p>
+    </footer>
 
 </div>
-</body>
+
 <script>
+    /* ===== board geometry (all sizes are percentages, so the board scales) ===== */
+    var N = 15, PAD = 25, VIEW = 450, SP = (VIEW - 2 * PAD) / (N - 1);
+    var STARS = [[3, 3], [3, 11], [11, 3], [11, 11], [7, 7]];
+
+    function pos(i) { return PAD + SP * i; }          // in the 0..450 viewBox
+    function pct(i) { return (pos(i) / VIEW * 100).toFixed(4) + "%"; }
+
+    /* ---- grid lines + star points, drawn as SVG (no image download) ---- */
+    (function drawGrid() {
+        var ve = ' vector-effect="non-scaling-stroke"/>';
+        var s = '<g stroke="#3a3227" stroke-width="1">';
+        for (var i = 0; i < N; i++) {
+            var p = pos(i).toFixed(2), a = pos(0).toFixed(2), b = pos(N - 1).toFixed(2);
+            s += '<line x1="' + a + '" y1="' + p + '" x2="' + b + '" y2="' + p + '"' + ve;
+            s += '<line x1="' + p + '" y1="' + a + '" x2="' + p + '" y2="' + b + '"' + ve;
+        }
+        s += '</g><g fill="#3a3227">';
+        for (var k = 0; k < STARS.length; k++) {
+            var r = (STARS[k][0] === 7 && STARS[k][1] === 7) ? 4 : 3;
+            s += '<circle cx="' + pos(STARS[k][0]).toFixed(2) + '" cy="' + pos(STARS[k][1]).toFixed(2) + '" r="' + r + '"/>';
+        }
+        s += '</g>';
+        document.getElementById("grid").innerHTML = s;
+    })();
+
+    /* ===== game state ===== */
     var steps_string = "h8";
     var person2person = false;
     var init_steps = findGetParameter("init_steps");
     var person2personGet = findGetParameter("person2person");
-    if(init_steps != null){
+    if (init_steps != null) {
         steps_string = init_steps;
     }
-    if(person2personGet != null){
+    if (person2personGet != null) {
         person2person = true;
     }
 
@@ -148,17 +474,105 @@ If the web service is down, please install the app to your iPhone and iPad to pl
     var rollbackTime = 0;
     var gameId = guid();
 
-    var content = "";
-    for (i = 0; i < 15; i++) {
-        content = content + "<div>";
-        for (j = 0; j < 15; j++) {
-            content = content + "<img tag='.' lx='" + i + "' ly='" + j + "'  onClick='onClickCube(this)' id='" + i + "-" + j + "' style='" + getLocation(i, j) + "' src='pic/blank.png'>"
+    var boardEl = document.getElementById("board");
+    var statusEl = document.getElementById("status");
+    var statusTextEl = document.getElementById("status-text");
+    var statusDotEl = statusEl.querySelector(".dot");
+    var lastCell = null;
+
+    /* ---- build the 15x15 click targets ---- */
+    var cells = [];            // cells[x][y]
+    (function buildCells() {
+        var cols = "ABCDEFGHIJKLMNO";
+        var content = "";
+        for (var x = 0; x < N; x++) {
+            for (var y = 0; y < N; y++) {
+                content += '<div class="cell" role="button" id="' + x + '-' + y + '"' +
+                    ' aria-label="' + cols.charAt(x) + (y + 1) + '"' +
+                    ' style="left:' + pct(x) + ';top:' + pct(y) + '"></div>';
+            }
         }
-        content = content + "</div>";
+        var holder = document.getElementById("cubes");
+        holder.innerHTML = content;
+        for (var i = 0; i < N; i++) cells.push([]);
+        var nodes = holder.children;
+        for (var n = 0; n < nodes.length; n++) {
+            var xy = nodes[n].id.split("-");
+            cells[+xy[0]][+xy[1]] = nodes[n];
+        }
+        holder.addEventListener("click", function (e) {
+            var t = e.target;
+            if (t && t !== holder && t.id) onClickCube(t);
+        });
+    })();
+
+    document.getElementById("btn-back").onclick = rollback;
+    document.getElementById("btn-restart").onclick = askRestart;
+    document.getElementById(person2person ? "mode-pvp" : "mode-ai").className = "on";
+
+    /* ===== don't let a game in progress disappear by accident =====
+       The opening position is 1-2 stones, so there is nothing to lose yet;
+       only warn once the player has actually put work into the board. */
+    var LOSE_MSG = "You have a game going. If you continue, the board will be cleared.\n" +
+                   "当前棋局将被清空，确定继续吗？";
+    var leavingOnPurpose = false;   // set once the player has already been asked
+
+    function boardAtRisk() {
+        return !gameOver && historyStack.length > 2;
     }
-    $("#cubes").html(content);
+
+    function askRestart() {
+        if (boardAtRisk() && !window.confirm(LOSE_MSG)) return;
+        start();
+    }
+
+    // switching between "Play the AI" and "Two players" reloads the page
+    ["mode-ai", "mode-pvp"].forEach(function (id) {
+        document.getElementById(id).addEventListener("click", function (e) {
+            if (this.className === "on") return;          // already in this mode
+            if (!boardAtRisk()) return;
+            if (window.confirm(LOSE_MSG)) {
+                leavingOnPurpose = true;                 // don't ask again on the way out
+            } else {
+                e.preventDefault();
+            }
+        });
+    });
+
+    // closing the tab, reloading, or following a link off the page
+    window.addEventListener("beforeunload", function (e) {
+        if (leavingOnPurpose || !boardAtRisk()) return;
+        e.preventDefault();
+        e.returnValue = "";       // browsers show their own wording here
+        return "";
+    });
 
     start();
+
+    /* ===== status line (replaces the old alert() popups) ===== */
+    function setStatus(text, kind, dot) {
+        statusTextEl.innerHTML = text;
+        statusEl.className = kind || "";
+        statusDotEl.className = "dot " + (dot || "none");
+    }
+
+    function updateStatus() {
+        if (gameOver) return;
+        if (thinking) {
+            boardEl.className = "board busy";
+            setStatus("AI is thinking… 计算中…", "", "black");
+            return;
+        }
+        boardEl.className = "board";
+        var blackToPlay = historyStack.length % 2 === 0;
+        if (person2person) {
+            setStatus(blackToPlay ? "Black's turn 该黑棋走" : "White's turn 该白棋走", "",
+                blackToPlay ? "black" : "white");
+        } else {
+            setStatus("Your turn — tap the board 该你走", "", "white");
+        }
+    }
+
     function findGetParameter(parameterName) {
         var result = null,
             tmp = [];
@@ -200,28 +614,25 @@ If the web service is down, please install the app to your iPhone and iPad to pl
 
     function start() {
         if (thinking) {
-            alert("正在计算中...请稍后");
             return;
         }
         gameOver = false;
         historyStack = new Array();
-        for (i = 0; i < 15; i++)
-            for (j = 0; j < 15; j++) {
-                var id = "#" + i + "-" + j;
-                $(id).attr("tag", ".");
-                $(id).attr("src", "pic/blank.png");
+        for (var i = 0; i < N; i++)
+            for (var j = 0; j < N; j++) {
+                cells[i][j].removeAttribute("data-tag");
             }
+        hiddenHint();
         init(init_steps);
-        console.log("history stack length " + historyStack.length)
+        updateStatus();
         if(historyStack.length % 2 == 0){
-            console.log("request for the beginning board");
             if(!person2person) {
                 submit();
             }
         }
     }
 
-    function rollback(x, y, color) {
+    function rollback() {
         rollbackTime++;
         if (gameOver || thinking) {
             return;
@@ -229,16 +640,11 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         if (historyStack.length < 2) {
             return;
         }
-        var id;
         var pointWhite = historyStack.pop();
-        id = "#" + pointWhite.x + "-" + pointWhite.y;
-        $(id).attr("tag", ".");
-        $(id).attr("src", "pic/blank.png");
+        cells[pointWhite.x][pointWhite.y].removeAttribute("data-tag");
 
         var pointBlack = historyStack.pop();
-        id = "#" + pointBlack.x + "-" + pointBlack.y;
-        $(id).attr("tag", ".");
-        $(id).attr("src", "pic/blank.png");
+        cells[pointBlack.x][pointBlack.y].removeAttribute("data-tag");
 
         if (historyStack.length > 0) {
             var lastHit = historyStack[historyStack.length - 1];
@@ -246,17 +652,15 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         } else {
             hiddenHint();
         }
+        updateStatus();
     }
 
     function setColor(x, y, color) {
-        var id = "#" + x + "-" + y;
         if (color == "×") {
-            $(id).attr("tag", color);
-            $(id).attr("src", "pic/black.png");
+            cells[x][y].setAttribute("data-tag", "B");
         }
         if (color == "●") {
-            $(id).attr("tag", color);
-            $(id).attr("src", "pic/white.png");
+            cells[x][y].setAttribute("data-tag", "W");
         }
         moveHint(x, y);
         var point = {
@@ -286,9 +690,9 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         }
         return null;
     }
+
     function onClickCube(obj) {
         if (!person2person && thinking) {
-            alert("正在计算中...请稍后");
             return;
         }
         if (gameOver) {
@@ -297,62 +701,71 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         var id = obj.id;
         var x = parseInt(id.split("-")[0]);
         var y = parseInt(id.split("-")[1]);
-        if ($("#" + id).attr("tag") == ".") {
+        if (!obj.getAttribute("data-tag")) {
             var color = "WHITE";
             if(historyStack.length % 2 == 0){
                 color = "BLACK";
             }
             setColor(x, y, getColorChar(color));
-            if(!person2person){
+            if(!person2person && !gameOver){
                 submit();
+            } else {
+                updateStatus();
             }
         }
-    }
-
-    function getLocation(x, y) {
-        var boundary = 17;
-        var between = 29;
-        var size = 25;
-        var left = between * x + boundary;
-        var top = between * y + boundary;
-        return "position:absolute;left:" + left + "px;top:" + top + "px;width:" + size + "px;height:" + size + "px"
     }
 
     function moveHint(x, y) {
-        $("#hint").removeAttr("hidden");
-        $("#hint").attr("style", getLocation(x, y));
-        $("#hint").attr("style", getLocation(x, y));
+        hiddenHint();
+        lastCell = cells[x][y];
+        lastCell.className = "cell last";
     }
 
     function hiddenHint() {
-        $("#hint").attr("hidden", "hidden");
+        if (lastCell) {
+            lastCell.className = "cell";
+            lastCell = null;
+        }
     }
 
     function submit() {
-        var stepsString = historyStack2stepsString(historyStack);
-        var params = {
-            "stepsString": stepsString,
-            "color": aiColor,
-            "level": level,
-            "gameId": gameId
-        }
+        var params = "stepsString=" + encodeURIComponent(historyStack2stepsString(historyStack)) +
+            "&color=" + encodeURIComponent(aiColor) +
+            "&level=" + encodeURIComponent(level) +
+            "&gameId=" + encodeURIComponent(gameId);
 
         thinking = true;
-        $.ajax({
-            type: "GET",
-            url: "https://gomoku.hula.ai/next_step",
-            data: params,
-            datatype: "json",
-            success: function (data) {
-                if (data != null && data != "") {
-                    setColor(data.x, data.y, getColorChar(aiColor));
-                }
-                thinking = false;
-            },
-            error: function () {
-                thinking = false;
+        updateStatus();
+
+        var done = function (text) {
+            var data = null;
+            if (text) { try { data = JSON.parse(text); } catch (e) { data = null; } }
+            thinking = false;
+            if (data && typeof data.x === "number") {
+                setColor(data.x, data.y, getColorChar(aiColor));
+                updateStatus();
+            } else {
+                fail();
             }
-        });
+        };
+        var fail = function () {
+            thinking = false;
+            boardEl.className = "board";
+            setStatus("The AI could not be reached. Check your connection and tap Restart. 网络异常，请重试。", "err");
+        };
+
+        if (window.fetch) {
+            fetch("https://gomoku.hula.ai/next_step?" + params)
+                .then(function (r) { return r.ok ? r.text() : ""; })
+                .then(done)
+                .catch(fail);
+        } else {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "https://gomoku.hula.ai/next_step?" + params, true);
+            xhr.onload = function () { done(xhr.status >= 200 && xhr.status < 300 ? xhr.responseText : ""); };
+            xhr.onerror = fail;
+            xhr.send();
+        }
     }
 
     function point2str(point){
@@ -384,8 +797,6 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         }
         return false;
     }
-    console.assert(!winCheckForOneSide([{x: 7, y: 2}, {x: 7, y: 3}, {x: 7, y: 4}]));
-    console.assert(winCheckForOneSide([{x: 7, y: 0}, {x: 7, y: 1}, {x: 7, y: 2}, {x: 7, y: 3}, {x: 7, y: 4}]));
 
     function winCheck(historyArr) {
     /*
@@ -400,14 +811,16 @@ If the web service is down, please install the app to your iPhone and iPad to pl
                 whiteArr.push(historyArr[i]);
             }
         }
-        console.log("white length " + whiteArr.length);
-        if (winCheckForOneSide(blackArr)) {
-            alert("黑棋胜利");
+        var blackWin = winCheckForOneSide(blackArr);
+        var whiteWin = winCheckForOneSide(whiteArr);
+        if (blackWin || whiteWin) {
             thinking = false;
-        }
-        if (winCheckForOneSide(whiteArr)) {
-            alert("白棋胜利");
-            thinking = false;
+            gameOver = true;
+            boardEl.className = "board";
+            var who = blackWin
+                ? (person2person ? "Black wins! 黑棋胜利" : "The AI wins! 黑棋胜利")
+                : (person2person ? "White wins! 白棋胜利" : "You win! 白棋胜利");
+            setStatus(who + " — tap Restart to play again.", "win", blackWin ? "black" : "white");
         }
     }
 
@@ -418,9 +831,25 @@ If the web service is down, please install the app to your iPhone and iPad to pl
         });
     }
 
-    // Update the statement of service end
-    // Get the current date
+    /* signing up for the Android test posts to another site - that is a
+       deliberate navigation, not an accidental one, so skip the warning */
+    (function () {
+        var f = document.querySelector("#android-beta form");
+        if (f) f.addEventListener("submit", function () { leavingOnPurpose = true; });
+    })();
 
-
+    /* Google Analytics — queued now, script fetched only after the page is
+       usable so it never competes with the game on a slow connection. */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9D2R56XSHB');
+    window.addEventListener('load', function () {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9D2R56XSHB';
+        document.head.appendChild(s);
+    });
 </script>
+</body>
 </html>
