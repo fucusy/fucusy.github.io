@@ -10,100 +10,64 @@
   <meta property="og:image" content="https://www.bytedance.ai/og.png" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" type="image/png" href="../../diary-favicon.png" />
+  <link rel="stylesheet" href="../../diary-assets/diary-mviTzYD6.css" />
   <style>
-    :root {
-      --ink: #1f2a24;
-      --muted: #4a5750;
-      --accent: #2f5d45;
-      --bg: #f6f1e8;
-      --card: #fffdf8;
-      --line: #d9d0c2;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
-      color: var(--ink);
-      background: var(--bg);
-      line-height: 1.65;
-    }
-    header {
+    /* Article-specific styles */
+    .article-wrapper {
       max-width: 720px;
       margin: 0 auto;
-      padding: 28px 24px 8px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    header a {
-      color: var(--accent);
-      text-decoration: none;
-      font-size: 0.95rem;
-    }
-    .brand {
-      font-weight: 600;
-      color: var(--ink);
-    }
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .lang-toggle {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      padding: 6px 12px;
-      font-size: 0.85rem;
-      cursor: pointer;
-      font-family: inherit;
-    }
-    .lang-toggle:hover {
-      opacity: 0.9;
-    }
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 8px 24px 64px;
+      padding: 48px 24px 80px;
     }
     .card {
-      background: var(--card);
+      background: var(--paper);
       border: 1px solid var(--line);
       border-radius: 16px;
       padding: 32px 28px;
     }
-    h1 {
+    .card h1 {
       margin: 0 0 8px;
       font-size: 1.85rem;
       line-height: 1.25;
-      color: var(--accent);
+      color: var(--green);
+      letter-spacing: -0.02em;
     }
     .meta {
-      color: var(--muted);
+      color: #69736d;
       font-size: 0.9rem;
       margin-bottom: 24px;
       font-style: italic;
     }
-    h2 {
+    .meta a {
+      color: var(--green);
+      text-decoration: underline;
+    }
+    .card h2 {
       margin: 32px 0 12px;
       font-size: 1.2rem;
-      color: var(--accent);
+      color: var(--green);
+      font-family: Georgia, serif;
+      letter-spacing: 0;
     }
-    p, li { color: var(--ink); }
-    ul, ol { padding-left: 1.4rem; }
-    li { margin: 0.4rem 0; }
+    .card p, .card li {
+      color: var(--ink);
+      font-family: Georgia, serif;
+      line-height: 1.7;
+    }
+    .card ul, .card ol {
+      padding-left: 1.4rem;
+    }
+    .card li {
+      margin: 0.4rem 0;
+    }
     .highlight {
-      background: linear-gradient(to bottom, transparent 60%, rgba(47,93,69,0.15) 60%);
+      background: linear-gradient(to bottom, transparent 60%, rgba(74,122,90,0.18) 60%);
       padding: 0 2px;
     }
     .cta-link {
       display: inline-block;
       margin-top: 20px;
       padding: 12px 24px;
-      background: var(--accent);
+      background: var(--green);
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
@@ -118,35 +82,48 @@
       border-top: 1px solid var(--line);
     }
     .disclaimer {
-      color: var(--muted);
+      color: #69736d;
       font-size: 0.85rem;
       font-style: italic;
       margin-top: 28px;
     }
-    footer {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 0 24px 48px;
-      color: var(--muted);
-      font-size: 0.9rem;
+    .disclaimer a {
+      color: var(--green);
+      text-decoration: underline;
     }
+    /* Language visibility */
     [data-lang="zh"] { display: none; }
     html[lang="zh-CN"] [data-lang="en"] { display: none; }
     html[lang="zh-CN"] [data-lang="zh"] { display: block; }
+    html[lang="zh-CN"] span[data-lang="zh"],
+    html[lang="zh-CN"] a[data-lang="zh"] { display: inline; }
+    span[data-lang="zh"], a[data-lang="zh"] { display: none; }
+    /* Nav active state for current page */
+    .nav-actions a[aria-current="page"] {
+      color: var(--green);
+      font-weight: 600;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <a class="brand" href="../../diary.html" data-lang="en">Diary Companion</a>
-    <a class="brand" href="../../diary.html" data-lang="zh">日记伙伴</a>
-    <div class="nav-right">
-      <a href="../../diary.html" data-lang="en">Back to product</a>
-      <a href="../../diary.html" data-lang="zh">返回产品</a>
-      <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+  <nav class="nav shell">
+    <a class="brand" href="../../diary.html" aria-label="Diary Companion home">
+      <img src="../../brand-icon.svg" alt="" />
+      <span data-lang="en">Diary Companion</span>
+      <span data-lang="zh">日记伙伴</span>
+    </a>
+    <div class="nav-actions">
+      <a href="../../diary.html#why" data-lang="en">Why handwriting</a>
+      <a href="../../diary.html#why" data-lang="zh">为什么手写</a>
+      <a href="../../diary.html#privacy" data-lang="en">Local privacy</a>
+      <a href="../../diary.html#privacy" data-lang="zh">本地隐私</a>
+      <a href="./" aria-current="page" data-lang="en">Research</a>
+      <a href="./" aria-current="page" data-lang="zh">阅读</a>
+      <button class="language-toggle" id="langToggle" aria-label="Switch language">中文</button>
     </div>
-  </header>
+  </nav>
 
-  <main>
+  <main class="article-wrapper">
     <article class="card">
       <!-- English Content -->
       <div data-lang="en">
@@ -252,9 +229,20 @@
     </article>
   </main>
 
-  <footer>
-    <span data-lang="en">© Qiang Chen · <a href="../../diary.html">Diary Companion</a></span>
-    <span data-lang="zh">© Qiang Chen · <a href="../../diary.html">日记伙伴</a></span>
+  <footer class="shell">
+    <a class="brand" href="../../diary.html">
+      <img src="../../brand-icon.svg" alt="" />
+      <span data-lang="en">Diary Companion</span>
+      <span data-lang="zh">日记伙伴</span>
+    </a>
+    <p>
+      <span data-lang="en">Private reflection, designed to stay close.</span>
+      <span data-lang="zh">贴近你，也保护你的私人反思。</span>
+    </p>
+    <small>
+      <span data-lang="en">Diary Companion is a reflective tool, not medical or mental-health care.</span>
+      <span data-lang="zh">日记伙伴是反思工具，不能替代医疗或心理健康服务。</span>
+    </small>
   </footer>
 
   <script>
