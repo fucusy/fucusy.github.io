@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.bytedance.ai/diary.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/diary/blog/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary/blog/</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/diary/blog/downward-spiral.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/downward-spiral.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/downward-spiral.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/downward-spiral.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary/blog/downward-spiral.html</loc>
+    <lastmod>2026-10-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/downward-spiral.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/downward-spiral.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/downward-spiral.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/diary/privacy.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary/privacy.html</loc>
+    <lastmod>2026-10-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/privacy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/privacy.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/gomoku.html</loc>
+  </url>
+</urlset>
