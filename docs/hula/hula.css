@@ -139,7 +139,7 @@ footer > p { text-align: center; margin: 0; } footer > small { justify-self: end
 .app-chip strong { font-size: 15px; font-weight: 600; }
 .app-chip small { font-size: 12px; color: var(--muted); }
 .app-chip em { font-style: normal; font-size: 12px; font-weight: 600; color: var(--brand); margin-top: 3px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
-.app-chip svg.apple { width: 10px; height: 12px; fill: currentColor; }
+.app-chip svg.apple { width: 11px; height: 14px; flex: none; fill: currentColor; }
 .closing-row { grid-template-columns: repeat(5, 1fr); max-width: 980px; margin: 0 auto 34px; }
 @media (width <= 980px) { .closing-row { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); max-width: 580px; } }
 @media (width <= 820px) { .app-row { margin-inline: auto; } .app-row-label { text-align: center; } }
