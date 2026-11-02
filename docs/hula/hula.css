@@ -126,3 +126,21 @@ footer > p { text-align: center; margin: 0; } footer > small { justify-self: end
 }
 @media (width <= 520px) { .shell { width: min(100% - 28px, 1180px); } }
 .inline-link, .sources a { color: var(--brand); text-decoration: underline; text-underline-offset: 3px; }
+
+/* all-language download row */
+.hero-actions { display: block; }
+.app-row-label { margin: 0 0 14px; font-size: 14px; color: var(--muted); }
+.app-row { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); gap: 12px; max-width: 580px; }
+.app-chip { display: flex; align-items: center; gap: 12px; height: 100%; box-sizing: border-box; padding: 12px 14px; border: 1px solid var(--line); border-radius: 16px; background: #fff; color: var(--ink); text-align: left; transition: border-color .15s, box-shadow .15s; }
+.app-chip:hover, .app-chip:focus-visible { border-color: var(--brand); box-shadow: 0 6px 18px rgba(11,94,215,.10); }
+.app-chip img, .app-chip .glyph { flex: none; width: 40px; height: 40px; border-radius: 10px; }
+.app-chip .glyph { display: grid; place-items: center; font-size: 20px; font-weight: 700; background: var(--brand-soft); color: var(--brand); }
+.app-chip > span:last-child { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
+.app-chip strong { font-size: 15px; font-weight: 600; }
+.app-chip small { font-size: 12px; color: var(--muted); }
+.app-chip em { font-style: normal; font-size: 12px; font-weight: 600; color: var(--brand); margin-top: 3px; display: inline-flex; align-items: center; gap: 4px; white-space: nowrap; }
+.app-chip svg.apple { width: 10px; height: 12px; fill: currentColor; }
+.closing-row { grid-template-columns: repeat(5, 1fr); max-width: 980px; margin: 0 auto 34px; }
+@media (width <= 980px) { .closing-row { grid-template-columns: repeat(auto-fill, minmax(168px, 1fr)); max-width: 580px; } }
+@media (width <= 820px) { .app-row { margin-inline: auto; } .app-row-label { text-align: center; } }
+@media (width <= 520px) { .app-row, .closing-row { grid-template-columns: 1fr 1fr; gap: 10px; } .app-chip { padding: 10px; gap: 10px; } .app-chip img, .app-chip .glyph { width: 34px; height: 34px; } .app-chip em { font-size: 11px; } }
