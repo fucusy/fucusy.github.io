@@ -3,116 +3,229 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Puuull – Pull-up counter</title>
-  <meta name="description" content="Puuull counts your pull-ups with your phone in your pocket." />
+  <title>Puuull – Pull-up counter for iPhone and Apple Watch</title>
+  <meta name="description" content="Puuull counts your pull-ups with your iPhone in your pocket, even when it's locked. History, stats, Apple Health workouts, Apple Watch stats and CSV export. Free on the App Store." />
   <link rel="canonical" href="https://www.bytedance.ai/puuull/" />
-  <meta property="og:title" content="Puuull – Pull-up counter" />
-  <meta property="og:description" content="Puuull counts your pull-ups with your phone in your pocket." />
+  <link rel="icon" type="image/png" href="./img/favicon.png" />
+  <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
+  <meta name="apple-itunes-app" content="app-id=6826740740" />
+  <meta name="theme-color" content="#f9f0e2" />
+  <meta property="og:title" content="Puuull – Pull-up counter for iPhone and Apple Watch" />
+  <meta property="og:description" content="Count your pull-ups with your phone in your pocket. Free on the App Store." />
   <meta property="og:url" content="https://www.bytedance.ai/puuull/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Puuull" />
   <meta property="og:locale" content="en_US" />
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Puuull – Pull-up counter" />
-  <meta name="twitter:description" content="Puuull counts your pull-ups with your phone in your pocket." />
+  <meta property="og:image" content="https://www.bytedance.ai/puuull/img/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Puuull app icon with the tagline: Count your pull-ups with your phone in your pocket." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Puuull – Pull-up counter for iPhone and Apple Watch" />
+  <meta name="twitter:description" content="Count your pull-ups with your phone in your pocket. Free on the App Store." />
+  <meta name="twitter:image" content="https://www.bytedance.ai/puuull/img/og.png" />
   <link rel="stylesheet" href="../diary-assets/diary-seo-2026.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Puuull – Pull-up counter",
-    "description": "Puuull counts your pull-ups with your phone in your pocket.",
+    "@type": "MobileApplication",
+    "name": "Puuull",
+    "description": "Count your pull-ups with your iPhone in your pocket. History, stats, Apple Health workouts, Apple Watch stats and CSV export.",
     "url": "https://www.bytedance.ai/puuull/",
-    "inLanguage": "en",
-    "publisher": { "@type": "Organization", "name": "Puuull" }
+    "image": "https://www.bytedance.ai/puuull/img/icon-512.png",
+    "operatingSystem": "iOS 26.0 or later",
+    "applicationCategory": "HealthApplication",
+    "installUrl": "https://apps.apple.com/us/app/puuull/id6826740740",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Qiang Chen" }
   }
   </script>
   <style>
-    .article-wrapper {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 48px 24px 80px;
-    }
-    .card {
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 32px 28px;
-    }
-    .card h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-      line-height: 1.2;
-      color: var(--green);
-    }
-    .meta {
-      color: #69736d;
-      font-size: 0.95rem;
-      margin-bottom: 28px;
-    }
-    .card h2 {
-      margin: 28px 0 10px;
-      font-size: 1.25rem;
-      color: var(--green);
-    }
-    .card p, .card li {
-      color: var(--ink);
-      font-family: Georgia, serif;
-      line-height: 1.7;
-    }
-    .card ul, .card ol {
-      padding-left: 1.2rem;
-    }
-    .card li {
-      margin: 0.35rem 0;
-    }
-    .card h3 {
-      margin: 20px 0 6px;
-      font-size: 1.05rem;
-      color: var(--ink);
-    }
-    .card a {
-      color: var(--green);
-      text-decoration: underline;
+    :root { --lime: #9bd400; }
+    .nav-actions a.store-link { color: var(--green); font-weight: 700; }
+    .hero.puuull-hero { min-height: auto; padding-block: 80px 100px; }
+    .hero-icon { width: 104px; height: 104px; border-radius: 24px; margin-bottom: 28px;
+      box-shadow: 0 14px 36px #3d6b5733; border: 1px solid #00000010; }
+    .store-badge { display: inline-flex; align-items: center; gap: 12px; background: #000; color: #fff;
+      border-radius: 12px; padding: 10px 20px 10px 16px; box-shadow: 0 12px 28px #0000002e; }
+    .store-badge svg { width: 26px; height: 26px; fill: #fff; }
+    .store-badge span { display: flex; flex-direction: column; line-height: 1.1; }
+    .store-badge small { font-size: 11px; letter-spacing: .02em; }
+    .store-badge strong { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
+    .phone-stage { display: flex; justify-content: center; align-items: flex-end; gap: 22px; position: relative; }
+    .phone-stage:before { content: ""; position: absolute; width: 440px; height: 440px; border-radius: 50%;
+      background: #618f7021; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+    .shot { position: relative; width: 230px; border-radius: 34px; border: 6px solid #1f2a24;
+      background: #fff; overflow: hidden; box-shadow: 0 28px 70px #503e302e; }
+    .shot.tilt { transform: rotate(4deg) translateY(-24px); width: 210px; }
+    .shot img { display: block; width: 100%; }
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .features article { background: var(--paper); border: 1px solid #7a635a1f; padding: 30px; }
+    .features article > span { color: var(--green-light); letter-spacing: .12em; font: 700 12px/1 Arial, sans-serif; }
+    .features h3 { margin-top: 16px; }
+    .features p { color: #525a56; line-height: 1.65; margin: 0; }
+    .gallery { display: flex; gap: 22px; overflow-x: auto; padding: 10px 4px 26px; scroll-snap-type: x mandatory; }
+    .gallery figure { margin: 0; flex: 0 0 220px; scroll-snap-align: start; }
+    .gallery .shot { width: 220px; }
+    .gallery figcaption { text-align: center; color: #5a625e; font-size: 13px; margin-top: 14px; }
+    .watch-row { display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: center; }
+    .watch { width: 230px; border-radius: 52px; border: 12px solid #1f2a24; overflow: hidden; background: #000;
+      box-shadow: 0 28px 70px #503e3033; }
+    .watch img { display: block; width: 100%; }
+    .note { color: #626d66; font-size: 14px; margin-top: 18px; }
+    .help-links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; font-size: 14px; margin-top: 26px; }
+    .help-links a { color: var(--green); border-bottom: 1px solid var(--line); padding-bottom: 3px; }
+    @media (width <= 820px) {
+      .features { grid-template-columns: 1fr; }
+      .watch-row { grid-template-columns: 1fr; gap: 40px; justify-items: center; text-align: center; }
+      .phone-stage .shot { width: 170px; } .phone-stage .shot.tilt { width: 155px; }
+      .hero-copy .hero-icon { margin-inline: auto; }
+      .phone-stage:before { width: 320px; height: 320px; }
     }
   </style>
 </head>
 <body>
   <nav class="nav shell">
-    <a class="brand" href="./" aria-label="Puuull">
+    <a class="brand" href="./" aria-label="Puuull home">
+      <img src="./img/icon-112.png" alt="" width="44" height="44" />
       <span>Puuull</span>
     </a>
+    <div class="nav-actions">
+      <a href="#features">Features</a>
+      <a href="./support.html">Support</a>
+      <a href="./privacy.html">Privacy</a>
+      <a class="store-link" href="https://apps.apple.com/us/app/puuull/id6826740740">App Store</a>
+    </div>
   </nav>
 
-  <main class="article-wrapper">
-    <article class="card">
-      <h1>Puuull</h1>
-      <p class="meta">Pull-up counter for iPhone and Apple Watch</p>
-      <p>
-        Count your pull-ups with your phone in your pocket. Tap Start, put the phone in your pocket,
-        do your set and tap End. Fix the count if it's off, and Puuull learns how you move and counts
-        more accurately over time.
-      </p>
-      <ul>
-        <li>Hands-free counting, even with the phone locked</li>
-        <li>History with a motion chart for every set</li>
-        <li>Stats and streaks, also on Apple Watch</li>
-        <li>Each recorded set saved to Apple Health as a workout</li>
-      </ul>
-      <h2>Help</h2>
-      <p>
-        <a href="./support.html">Support &amp; FAQ</a> ·
-        <a href="./privacy.html">Privacy Policy</a> ·
+  <main>
+    <section class="hero puuull-hero shell">
+      <div class="hero-copy">
+        <img class="hero-icon" src="./img/icon-512.png" alt="Puuull app icon" width="104" height="104" />
+        <p class="eyebrow">Pull-up counter · iPhone &amp; Apple Watch</p>
+        <h1>Count your pull-ups, <em>phone in pocket.</em></h1>
+        <p class="hero-lede">
+          Tap Start, put your iPhone in a front pocket and do your set. Puuull counts reps from
+          your phone's motion sensors, even when it's locked. Tap End, check the count, fix it if
+          it's off, and the set is saved.
+        </p>
+        <div class="hero-actions">
+          <a class="store-badge" href="https://apps.apple.com/us/app/puuull/id6826740740" aria-label="Download Puuull on the App Store">
+            <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+            <span><small>Download on the</small><strong>App Store</strong></span>
+          </a>
+          <span>Free · No account · No ads</span>
+        </div>
+      </div>
+      <div class="phone-stage" aria-hidden="true">
+        <div class="shot"><img src="./img/recording.jpg" alt="" width="480" height="1042" /></div>
+        <div class="shot tilt"><img src="./img/stats.jpg" alt="" width="480" height="1042" /></div>
+      </div>
+    </section>
+
+    <section class="section shell" id="features">
+      <div class="section-heading">
+        <p class="eyebrow">What it does</p>
+        <h2>Hands-free counting that learns how you move.</h2>
+        <p>
+          Every set you save teaches Puuull how you move. Once you have saved 5 recorded sets, it
+          compares its counting algorithms on your own sets and switches only when one is clearly
+          more accurate. It all happens on your iPhone.
+        </p>
+      </div>
+      <div class="features">
+        <article><span>01</span><h3>Phone in your pocket</h3>
+          <p>Counts pull-up reps from your iPhone's motion sensors, even when the phone is locked. Fix the count in one tap after each set.</p></article>
+        <article><span>02</span><h3>History</h3>
+          <p>Every set is kept with a motion chart. Add a set by hand when you didn't record it.</p></article>
+        <article><span>03</span><h3>Stats &amp; streaks</h3>
+          <p>This week, this month, this year, all-time, streaks and a 12-week activity grid.</p></article>
+        <article><span>04</span><h3>Apple Watch</h3>
+          <p>See today, this week, your streak and your last session at a glance, synced from your iPhone.</p></article>
+        <article><span>05</span><h3>Apple Health</h3>
+          <p>With your permission, each recorded set is saved as a Strength Training workout.</p></article>
+        <article><span>06</span><h3>Lab &amp; CSV export</h3>
+          <p>An advanced view for comparing counting algorithms on your own recorded sets, and any set's raw sensor data can be shared as CSV files.</p></article>
+      </div>
+    </section>
+
+    <section class="section science-wrap">
+      <div class="shell">
+        <div class="section-heading narrow">
+          <p class="eyebrow">A look inside</p>
+          <h2>Simple on the bar. Detailed after.</h2>
+        </div>
+        <div class="gallery">
+          <figure><div class="shot"><img src="./img/live.jpg" alt="Live tab with the Start Session button" width="480" height="1042" loading="lazy" /></div><figcaption>Start a set</figcaption></figure>
+          <figure><div class="shot"><img src="./img/recording.jpg" alt="Counting reps during a set" width="480" height="1042" loading="lazy" /></div><figcaption>Reps counted live</figcaption></figure>
+          <figure><div class="shot"><img src="./img/history.jpg" alt="History of saved sets" width="480" height="1042" loading="lazy" /></div><figcaption>History</figcaption></figure>
+          <figure><div class="shot"><img src="./img/stats.jpg" alt="Stats with weekly, monthly and yearly totals" width="480" height="1042" loading="lazy" /></div><figcaption>Stats</figcaption></figure>
+          <figure><div class="shot"><img src="./img/lab.jpg" alt="Lab view comparing counting algorithms" width="480" height="1042" loading="lazy" /></div><figcaption>Lab</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell">
+      <div class="watch-row">
+        <div>
+          <p class="eyebrow">On your wrist</p>
+          <h2>Your stats on Apple Watch.</h2>
+          <p class="section-copy">
+            The Apple Watch app shows today's reps, this week, your streak and your last session,
+            sent from your iPhone. Counting is done on the iPhone.
+          </p>
+        </div>
+        <div class="watch"><img src="./img/watch.jpg" alt="Puuull on Apple Watch showing today, this week and streak" width="416" height="496" loading="lazy" /></div>
+      </div>
+    </section>
+
+    <section class="privacy">
+      <div class="privacy-inner shell">
+        <div class="privacy-orbit" aria-hidden="true">
+          <div class="phone">
+            <img src="./img/icon-112.png" alt="" />
+            <span>0</span>
+            <small>accounts</small>
+          </div>
+        </div>
+        <div>
+          <p class="eyebrow light">Privacy</p>
+          <h2>No account, no sign-in, no ads.</h2>
+          <p>
+            Your sets are recorded and stored on your iPhone, and you can export or delete them at
+            any time. Any data Puuull collects to improve counting is anonymous, not linked to you,
+            never used for tracking and never sold. Apple Health data is never shared.
+          </p>
+          <div class="privacy-tags">
+            <span>No account</span><span>No ads</span><span>Not sold</span><span>Export anytime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing shell">
+      <img src="./img/icon-512.png" alt="" width="72" height="72" />
+      <h2>Your next set, <em>counted.</em></h2>
+      <p>Puuull is free on the App Store for iPhone, with a companion Apple Watch app. Requires iOS 26 or later.</p>
+      <a class="store-badge" href="https://apps.apple.com/us/app/puuull/id6826740740" aria-label="Download Puuull on the App Store">
+        <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        <span><small>Download on the</small><strong>App Store</strong></span>
+      </a>
+      <div class="help-links">
+        <a href="./support.html">Support &amp; FAQ</a>
+        <a href="./privacy.html">Privacy Policy</a>
         <a href="mailto:qiang@hula.ai">qiang@hula.ai</a>
-      </p>
-    </article>
+      </div>
+    </section>
   </main>
 
   <footer class="shell">
     <a class="brand" href="./">
+      <img src="./img/icon-112.png" alt="" width="34" height="34" />
       <span>Puuull</span>
     </a>
     <p>Count your pull-ups, phone in pocket. · <a href="./support.html">Support</a> · <a href="./privacy.html">Privacy Policy</a></p>
+    <small><a href="../">More apps by Qiang Chen</a></small>
   </footer>
 </body>
 </html>
