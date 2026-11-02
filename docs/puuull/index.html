@@ -12,7 +12,7 @@
   <link rel="icon" type="image/png" href="./img/favicon.png" />
   <link rel="apple-touch-icon" href="./img/apple-touch-icon.png" />
   <meta name="apple-itunes-app" content="app-id=6826740740" />
-  <meta name="theme-color" content="#f9f0e2" />
+  <meta name="theme-color" content="#ffffff" />
   <meta property="og:title" content="Puuull – Pull-up counter for iPhone and Apple Watch" />
   <meta property="og:description" content="Count your pull-ups with your phone in your pocket. Free on the App Store." />
   <meta property="og:url" content="https://www.bytedance.ai/puuull/" />
@@ -27,7 +27,7 @@
   <meta name="twitter:title" content="Puuull – Pull-up counter for iPhone and Apple Watch" />
   <meta name="twitter:description" content="Count your pull-ups with your phone in your pocket. Free on the App Store." />
   <meta name="twitter:image" content="https://www.bytedance.ai/puuull/img/og.png" />
-  <link rel="stylesheet" href="../diary-assets/diary-seo-2026.css" />
+  <link rel="stylesheet" href="./puuull.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -81,51 +81,9 @@
     ]
   }
   </script>
-  <style>
-    :root { --lime: #9bd400; }
-    .nav-actions a.store-link { color: var(--green); font-weight: 700; }
-    .hero.puuull-hero { min-height: auto; padding-block: 80px 100px; }
-    .hero-icon { width: 104px; height: 104px; border-radius: 24px; margin-bottom: 28px;
-      box-shadow: 0 14px 36px #3d6b5733; border: 1px solid #00000010; }
-    .store-badge { display: inline-flex; align-items: center; gap: 12px; background: #000; color: #fff;
-      border-radius: 12px; padding: 10px 20px 10px 16px; box-shadow: 0 12px 28px #0000002e; }
-    .store-badge svg { width: 26px; height: 26px; fill: #fff; }
-    .store-badge span { display: flex; flex-direction: column; line-height: 1.1; }
-    .store-badge small { font-size: 11px; letter-spacing: .02em; }
-    .store-badge strong { font-size: 21px; font-weight: 600; letter-spacing: -.01em; }
-    .phone-stage { display: flex; justify-content: center; align-items: flex-end; gap: 22px; position: relative; }
-    .phone-stage:before { content: ""; position: absolute; width: 440px; height: 440px; border-radius: 50%;
-      background: #618f7021; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-    .shot { position: relative; width: 230px; border-radius: 34px; border: 6px solid #1f2a24;
-      background: #fff; overflow: hidden; box-shadow: 0 28px 70px #503e302e; }
-    .shot.tilt { transform: rotate(4deg) translateY(-24px); width: 210px; }
-    .shot img { display: block; width: 100%; }
-    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .features article { background: var(--paper); border: 1px solid #7a635a1f; padding: 30px; }
-    .features article > span { color: var(--green-light); letter-spacing: .12em; font: 700 12px/1 Arial, sans-serif; }
-    .features h3 { margin-top: 16px; }
-    .features p { color: #525a56; line-height: 1.65; margin: 0; }
-    .gallery { display: flex; gap: 22px; overflow-x: auto; padding: 10px 4px 26px; scroll-snap-type: x mandatory; }
-    .gallery figure { margin: 0; flex: 0 0 220px; scroll-snap-align: start; }
-    .gallery .shot { width: 220px; }
-    .gallery figcaption { text-align: center; color: #5a625e; font-size: 13px; margin-top: 14px; }
-    .watch-row { display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: center; }
-    .watch { width: 230px; border-radius: 52px; border: 12px solid #1f2a24; overflow: hidden; background: #000;
-      box-shadow: 0 28px 70px #503e3033; }
-    .watch img { display: block; width: 100%; }
-    .note { color: #626d66; font-size: 14px; margin-top: 18px; }
-    .help-links { display: flex; gap: 22px; justify-content: center; flex-wrap: wrap; font-size: 14px; margin-top: 26px; }
-    .help-links a { color: var(--green); border-bottom: 1px solid var(--line); padding-bottom: 3px; }
-    @media (width <= 820px) {
-      .features { grid-template-columns: 1fr; }
-      .watch-row { grid-template-columns: 1fr; gap: 40px; justify-items: center; text-align: center; }
-      .phone-stage .shot { width: 170px; } .phone-stage .shot.tilt { width: 155px; }
-      .hero-copy .hero-icon { margin-inline: auto; }
-      .phone-stage:before { width: 320px; height: 320px; }
-    }
-  </style>
 </head>
-<body>
+<body data-scheme="W">
+  <header class="top">
   <nav class="nav shell">
     <a class="brand" href="./" aria-label="Puuull home">
       <img src="./img/icon-112.png" alt="Puuull app icon" width="44" height="44" />
@@ -138,11 +96,11 @@
       <a class="store-link" href="https://apps.apple.com/us/app/puuull/id6826740740">App Store</a>
     </div>
   </nav>
-
-  <main>
-    <section class="hero puuull-hero shell">
+    <section class="hero shell">
       <div class="hero-copy">
-        <img class="hero-icon" src="./img/icon-512.png" alt="Puuull app icon" width="104" height="104" />
+        <span class="hero-icon hero-logo" data-video-webm="./anim/puuull-logo.webm" data-video-mp4="./anim/puuull-logo.mp4">
+          <img src="./img/icon-512.png" alt="Puuull app icon: a lime green blob hanging from a pull-up bar" width="104" height="104" fetchpriority="high" />
+        </span>
         <p class="eyebrow">Pull-up counter · iPhone &amp; Apple Watch</p>
         <h1>Count your pull-ups, <em>phone in pocket.</em></h1>
         <p class="hero-lede">
@@ -155,6 +113,7 @@
             <svg viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
             <span><small>Download on the</small><strong>App Store</strong></span>
           </a>
+          <a class="btn" href="#features">See features</a>
           <span>Free · No account · No ads</span>
         </div>
       </div>
@@ -164,6 +123,9 @@
       </div>
     </section>
 
+    </header>
+
+  <main>
     <section class="section shell" id="features">
       <div class="section-heading">
         <p class="eyebrow">What it does</p>
@@ -268,5 +230,43 @@
     <p>Count your pull-ups, phone in pocket. · <a href="./support.html">Support</a> · <a href="./privacy.html">Privacy Policy</a></p>
     <small><a href="../">More apps by Qiang Chen</a></small>
   </footer>
+  <script>
+  /* Animated hero logo: the static icon renders first; after window load we fetch a
+     small looping video and swap it in only once it can play through. */
+  (function () {
+    var box = document.querySelector('.hero-logo');
+    if (!box || !('addEventListener' in window)) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var saveData = navigator.connection && navigator.connection.saveData;
+    if (reduce || saveData) return;
+    function start() {
+      var v = document.createElement('video');
+      v.muted = true; v.defaultMuted = true; v.loop = true; v.autoplay = true; v.playsInline = true;
+      ['muted', 'loop', 'autoplay', 'playsinline'].forEach(function (a) { v.setAttribute(a, ''); });
+      v.setAttribute('aria-hidden', 'true');
+      v.setAttribute('disablepictureinpicture', '');
+      v.preload = 'auto';
+      [['webm', 'video/webm'], ['mp4', 'video/mp4']].forEach(function (t) {
+        var src = box.getAttribute('data-video-' + t[0]);
+        if (!src || !v.canPlayType(t[1])) return;
+        var s = document.createElement('source'); s.src = src; s.type = t[1]; v.appendChild(s);
+      });
+      if (!v.firstChild) return;
+      var done = false;
+      function swap() {
+        if (done) return; done = true;
+        var p = v.play();
+        if (p && p.catch) p.catch(function () { v.remove(); box.classList.remove('is-animated'); });
+        box.classList.add('is-animated');
+      }
+      v.addEventListener('canplaythrough', swap);
+      v.addEventListener('error', function () { if (!done) v.remove(); }, true);
+      box.appendChild(v);
+      v.load();
+    }
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start);
+  })();
+  </script>
 </body>
 </html>
