@@ -3,7 +3,7 @@
   const copy = {
     en: {
       title: 'Try Diary Companion on your iPhone',
-      intro: 'Join the TestFlight waiting list by email. Fill in your details, then send the prepared email to qiang@hula.ai from your mail app.',
+      intro: 'Join the TestFlight waiting list. Fill in your details and send them directly to the Diary Companion team.',
       name: 'Your name (optional)', email: 'Email for your TestFlight invitation',
       requirements: 'This on-device beta requires an iPhone with at least 8 GB of memory (RAM). That memory is shared with the GPU; it is not your phone’s storage capacity. Tested on iPhone 16 Pro; performance on other eligible models is still being evaluated.',
       device: 'Your iPhone model (required)', deviceHint: 'Find it in Settings → General → About → Model Name.',
@@ -18,9 +18,10 @@
       unsupported: 'This model does not meet the 8 GB memory requirement and cannot join this on-device beta.',
       unknown: 'Please confirm your iPhone model before signing up. If it is not listed, contact qiang@hula.ai so we can check eligibility. This beta is for iPhone only.',
       message: 'Anything you’d like us to know? (optional)',
-      submit: 'Open email to sign up',
-      privacy: 'The button prepares an email to qiang@hula.ai. Review it and press Send in your mail app to finish signing up. Include only signup details, not journal entries.',
-      emailReady: 'Your signup has not been sent yet. Send the draft in your mail app. If no app opens, copy the email below and send it to qiang@hula.ai.',
+      submit: 'Send signup', sending: 'Sending…', sent: 'Your signup was sent. Thank you!',
+      failed: 'We could not send your signup. Please try again or use the email draft below.',
+      privacy: 'Your signup details are sent to the hula.ai server and emailed to qiang@hula.ai for beta invitations and follow-up. Please do not include journal entries.',
+      emailReady: 'Your signup has not been sent. Copy the draft below and email it to qiang@hula.ai, or try again.',
       draftLabel: 'Signup email — select and copy if needed',
       subject: 'Diary Companion iPhone TestFlight signup',
       emailIntro: 'Please add me to the Diary Companion iPhone TestFlight waiting list.',
@@ -30,7 +31,7 @@
     },
     zh: {
       title: '在你的 iPhone 上体验日记伙伴',
-      intro: '通过邮件加入 TestFlight 测试等候名单。填写信息后，在邮件应用中将准备好的邮件发送至 qiang@hula.ai。',
+      intro: '加入 TestFlight 测试等候名单。填写信息后，直接发送给日记伙伴团队。',
       name: '你的姓名（选填）', email: '接收 TestFlight 邀请的邮箱',
       requirements: '本次设备端测试要求 iPhone 至少配备 8 GB 运行内存（RAM）。这部分内存与 GPU 共享，并非手机的存储容量。已在 iPhone 16 Pro 上测试；其他符合条件的机型仍在评估性能。',
       device: '你的 iPhone 型号（必选）', deviceHint: '可在「设置 → 通用 → 关于本机 → 机型名称」中查看。',
@@ -45,9 +46,10 @@
       unsupported: '此机型不满足 8 GB 运行内存要求，暂时无法参加本次设备端测试。',
       unknown: '请确认 iPhone 型号后再报名。若列表中没有你的机型，请联系 qiang@hula.ai 核实是否符合条件。本次测试仅面向 iPhone。',
       message: '还有什么想告诉我们？（选填）',
-      submit: '打开邮件，报名测试',
-      privacy: '点击按钮会准备一封发给 qiang@hula.ai 的邮件。请在邮件应用中检查内容并点击「发送」，完成报名。仅填写报名信息，请勿包含日记内容。',
-      emailReady: '报名邮件尚未发送。请在邮件应用中发送草稿。若未打开邮件应用，请复制下方内容并发送至 qiang@hula.ai。',
+      submit: '发送报名信息', sending: '正在发送…', sent: '报名信息已发送，谢谢！',
+      failed: '发送失败，请重试，或使用下方的邮件草稿。',
+      privacy: '报名信息将发送至 hula.ai 服务器，再通过邮件发送给 qiang@hula.ai，用于测试邀请及后续联系。请勿填写日记内容。',
+      emailReady: '报名信息尚未发送。请重试，或复制下方草稿并通过邮件发送至 qiang@hula.ai。',
       draftLabel: '报名邮件（可选中并复制）',
       subject: '日记伙伴 iPhone TestFlight 测试报名',
       emailIntro: '请将我加入日记伙伴 iPhone TestFlight 测试等候名单。',
@@ -90,7 +92,7 @@
     if (status.textContent !== message) status.textContent = message;
     const blocked = Boolean(device.value) && !eligible && !newer;
     device.setCustomValidity(blocked ? message : '');
-    section.querySelector('button[type="submit"]').disabled = blocked;
+    section.querySelector('button[type="submit"]').disabled = blocked || section.dataset.sending === 'true';
   }
 
   function enhance() {
@@ -132,6 +134,7 @@
           <textarea id="diary-beta-message" name="message" rows="3" maxlength="2000"></textarea>
           <p id="diary-beta-privacy" class="diary-signup-note" data-copy="privacy"></p>
           <button class="primary-button" type="submit" aria-describedby="diary-beta-privacy" data-copy="submit"></button>
+          <p id="diary-submit-status" role="status" aria-live="polite"></p>
         </form>
         <div class="diary-email-fallback" hidden>
           <p role="status" data-copy="emailReady"></p>
@@ -141,14 +144,40 @@
         <a class="diary-signup-contact" href="mailto:qiang@hula.ai?subject=Diary%20Companion%20TestFlight" data-copy="contact"></a>`;
       closing.append(section);
       section.querySelector('[name="device"]').addEventListener('change', () => updateEligibility(section));
-      section.querySelector('form').addEventListener('submit', event => {
+      section.querySelector('form').addEventListener('submit', async event => {
         event.preventDefault();
         updateEligibility(section);
         if (!event.currentTarget.reportValidity()) return;
-        const email = composeSignupEmail(event.currentTarget, section.dataset.language);
-        section.querySelector('#diary-email-draft').value = email.draft;
-        section.querySelector('.diary-email-fallback').hidden = false;
-        window.location.href = email.href;
+        const form = event.currentTarget;
+        const lang = section.dataset.language;
+        const t = copy[lang];
+        const data = new FormData(form);
+        const device = data.get('device') === 'newer' ? data.get('device_model') : data.get('device');
+        const button = form.querySelector('button[type="submit"]');
+        const status = section.querySelector('#diary-submit-status');
+        section.dataset.sending = 'true';
+        button.disabled = true;
+        status.textContent = t.sending;
+        try {
+          const response = await fetch('https://www.hula.ai/diary/testflight-signup', {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: data.get('name'), email: data.get('email'), device, message: data.get('message'), language: lang }),
+            signal: AbortSignal.timeout(45000),
+          });
+          const result = await response.json();
+          if (!response.ok || !result.ok) throw new Error('Signup failed');
+          status.textContent = t.sent;
+          form.reset();
+          section.querySelector('.diary-email-fallback').hidden = true;
+        } catch (_) {
+          status.textContent = t.failed;
+          const email = composeSignupEmail(form, lang);
+          section.querySelector('#diary-email-draft').value = email.draft;
+          section.querySelector('.diary-email-fallback').hidden = false;
+        } finally {
+          section.dataset.sending = 'false';
+          updateEligibility(section);
+        }
       });
     }
     if (section.dataset.language !== language) {
