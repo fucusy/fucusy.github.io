@@ -8,6 +8,10 @@
       requirements: 'This on-device beta requires an iPhone with at least 8 GB of memory (RAM). That memory is shared with the GPU; it is not your phone’s storage capacity. Tested on iPhone 16 Pro; performance on other eligible models is still being evaluated.',
       device: 'Your iPhone model (required)', deviceHint: 'Find it in Settings → General → About → Model Name.',
       chooseDevice: 'Select your iPhone model',
+      newerDevice: 'Newer iPhone (18 series, Duo, or another model)',
+      newerModel: 'Exact iPhone model (required)',
+      newerHint: 'Enter the Model Name shown in Settings → General → About.',
+      newer: 'You can join the waiting list. We’ll check that your model meets the 8 GB RAM requirement before sending a beta invitation; compatibility is not yet confirmed.',
       unsupportedDevice: 'iPhone 15 / 15 Plus, or an older iPhone',
       unknownDevice: 'Another device / I’m not sure',
       eligible: 'This model is eligible for the beta waiting list.',
@@ -26,6 +30,10 @@
       requirements: '本次设备端测试要求 iPhone 至少配备 8 GB 运行内存（RAM）。这部分内存与 GPU 共享，并非手机的存储容量。已在 iPhone 16 Pro 上测试；其他符合条件的机型仍在评估性能。',
       device: '你的 iPhone 型号（必选）', deviceHint: '可在「设置 → 通用 → 关于本机 → 机型名称」中查看。',
       chooseDevice: '请选择你的 iPhone 型号',
+      newerDevice: '更新的 iPhone（18 系列、Duo 或其他新机型）',
+      newerModel: '具体 iPhone 型号（必填）',
+      newerHint: '请填写「设置 → 通用 → 关于本机」中显示的机型名称。',
+      newer: '你可以加入等候名单。发送测试邀请前，我们会确认此机型是否满足 8 GB 运行内存要求；目前尚未确认兼容性。',
       unsupportedDevice: 'iPhone 15 / 15 Plus 或更早的 iPhone',
       unknownDevice: '其他设备 / 不确定型号',
       eligible: '此机型可以加入测试等候名单。',
@@ -49,10 +57,15 @@
     const t = copy[section.dataset.language || 'en'];
     const device = section.querySelector('[name="device"]');
     const eligible = eligibleModels.includes(device.value);
-    const message = !device.value ? '' : eligible ? t.eligible : device.value === 'unsupported' ? t.unsupported : t.unknown;
+    const newer = device.value === 'newer';
+    const model = section.querySelector('[name="device_model"]');
+    section.querySelector('.diary-newer-model').hidden = !newer;
+    model.disabled = !newer;
+    model.required = newer;
+    const message = !device.value ? '' : newer ? t.newer : eligible ? t.eligible : device.value === 'unsupported' ? t.unsupported : t.unknown;
     const status = section.querySelector('#diary-beta-eligibility');
     if (status.textContent !== message) status.textContent = message;
-    const blocked = Boolean(device.value) && !eligible;
+    const blocked = Boolean(device.value) && !eligible && !newer;
     device.setCustomValidity(blocked ? message : '');
     section.querySelector('button[type="submit"]').disabled = blocked;
   }
@@ -86,11 +99,17 @@
           <label for="diary-beta-device" data-copy="device"></label>
           <select id="diary-beta-device" name="device" required aria-describedby="diary-beta-device-hint diary-beta-eligibility">
             <option value="" data-copy="chooseDevice"></option>
+            <option value="newer" data-copy="newerDevice"></option>
             ${eligibleModels.map(model => `<option value="${model}">${model}</option>`).join('')}
             <option value="unsupported" data-copy="unsupportedDevice"></option>
             <option value="unknown" data-copy="unknownDevice"></option>
           </select>
           <small id="diary-beta-device-hint" data-copy="deviceHint"></small>
+          <div class="diary-newer-model" hidden>
+            <label for="diary-beta-newer-model" data-copy="newerModel"></label>
+            <input id="diary-beta-newer-model" name="device_model" type="text" maxlength="150" pattern=".*\\S.*" disabled aria-describedby="diary-beta-newer-hint">
+            <small id="diary-beta-newer-hint" data-copy="newerHint"></small>
+          </div>
           <p id="diary-beta-eligibility" class="diary-signup-note" role="status" aria-live="polite"></p>
           <label for="diary-beta-message" data-copy="message"></label>
           <textarea id="diary-beta-message" name="message" rows="3" maxlength="2000"></textarea>

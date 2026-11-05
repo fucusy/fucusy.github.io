@@ -9,6 +9,7 @@
 .diary-signup button:disabled { opacity:.55; cursor:not-allowed; }
 .closing .diary-signup .diary-signup-requirements { padding:16px; border-left:3px solid #4a7a5a; background:#edf2eb; font-size:15px; }
 .diary-signup small { font:14px/1.5 Arial,Helvetica,sans-serif; }
+.diary-newer-model:not([hidden]) { display:grid; gap:10px; }
 #diary-beta-eligibility:empty { display:none; }
 .diary-signup button { border:0; cursor:pointer; justify-content:center; white-space:normal; line-height:1.5; }
 .closing .diary-signup .diary-signup-note { font-size:14px; }
