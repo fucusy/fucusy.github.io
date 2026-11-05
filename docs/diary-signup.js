@@ -3,7 +3,7 @@
   const copy = {
     en: {
       title: 'Try Diary Companion on your iPhone',
-      intro: 'Join the TestFlight waiting list. Leave your email and we’ll send an invitation when a beta build is ready.',
+      intro: 'Join the TestFlight waiting list by email. Fill in your details, then send the prepared email to qiang@hula.ai from your mail app.',
       name: 'Your name (optional)', email: 'Email for your TestFlight invitation',
       requirements: 'This on-device beta requires an iPhone with at least 8 GB of memory (RAM). That memory is shared with the GPU; it is not your phone’s storage capacity. Tested on iPhone 16 Pro; performance on other eligible models is still being evaluated.',
       device: 'Your iPhone model (required)', deviceHint: 'Find it in Settings → General → About → Model Name.',
@@ -18,14 +18,19 @@
       unsupported: 'This model does not meet the 8 GB memory requirement and cannot join this on-device beta.',
       unknown: 'Please confirm your iPhone model before signing up. If it is not listed, contact qiang@hula.ai so we can check eligibility. This beta is for iPhone only.',
       message: 'Anything you’d like us to know? (optional)',
-      submit: 'Join the iOS TestFlight waiting list',
-      privacy: 'This signup sends your details through FormSubmit to the Diary Companion team for beta invitations and testing follow-up. Do not include journal entries. Your diary stays separate from this form.',
+      submit: 'Open email to sign up',
+      privacy: 'The button prepares an email to qiang@hula.ai. Review it and press Send in your mail app to finish signing up. Include only signup details, not journal entries.',
+      emailReady: 'Your signup has not been sent yet. Send the draft in your mail app. If no app opens, copy the email below and send it to qiang@hula.ai.',
+      draftLabel: 'Signup email — select and copy if needed',
+      subject: 'Diary Companion iPhone TestFlight signup',
+      emailIntro: 'Please add me to the Diary Companion iPhone TestFlight waiting list.',
+      emailName: 'Name', emailAddress: 'Invitation email', emailDevice: 'iPhone model', emailMessage: 'Comments',
       contact: 'Questions? Contact qiang@hula.ai',
       link: 'Join the iPhone beta',
     },
     zh: {
       title: '在你的 iPhone 上体验日记伙伴',
-      intro: '加入 TestFlight 测试等候名单。留下邮箱，测试版本准备好后，我们会发送邀请。',
+      intro: '通过邮件加入 TestFlight 测试等候名单。填写信息后，在邮件应用中将准备好的邮件发送至 qiang@hula.ai。',
       name: '你的姓名（选填）', email: '接收 TestFlight 邀请的邮箱',
       requirements: '本次设备端测试要求 iPhone 至少配备 8 GB 运行内存（RAM）。这部分内存与 GPU 共享，并非手机的存储容量。已在 iPhone 16 Pro 上测试；其他符合条件的机型仍在评估性能。',
       device: '你的 iPhone 型号（必选）', deviceHint: '可在「设置 → 通用 → 关于本机 → 机型名称」中查看。',
@@ -40,8 +45,13 @@
       unsupported: '此机型不满足 8 GB 运行内存要求，暂时无法参加本次设备端测试。',
       unknown: '请确认 iPhone 型号后再报名。若列表中没有你的机型，请联系 qiang@hula.ai 核实是否符合条件。本次测试仅面向 iPhone。',
       message: '还有什么想告诉我们？（选填）',
-      submit: '报名 iOS TestFlight 测试',
-      privacy: '报名信息将通过 FormSubmit 发送给日记伙伴团队，用于测试邀请及测试跟进。请勿填写日记内容；此报名表与设备上的日记相互独立。',
+      submit: '打开邮件，报名测试',
+      privacy: '点击按钮会准备一封发给 qiang@hula.ai 的邮件。请在邮件应用中检查内容并点击「发送」，完成报名。仅填写报名信息，请勿包含日记内容。',
+      emailReady: '报名邮件尚未发送。请在邮件应用中发送草稿。若未打开邮件应用，请复制下方内容并发送至 qiang@hula.ai。',
+      draftLabel: '报名邮件（可选中并复制）',
+      subject: '日记伙伴 iPhone TestFlight 测试报名',
+      emailIntro: '请将我加入日记伙伴 iPhone TestFlight 测试等候名单。',
+      emailName: '姓名', emailAddress: '接收邀请的邮箱', emailDevice: 'iPhone 型号', emailMessage: '备注',
       contact: '有疑问？联系 qiang@hula.ai',
       link: '报名 iPhone 测试',
     },
@@ -52,6 +62,19 @@
     'iPhone 16 Pro Max', 'iPhone 16 Pro', 'iPhone 16 Plus', 'iPhone 16', 'iPhone 16e',
     'iPhone 15 Pro Max', 'iPhone 15 Pro',
   ];
+
+  function composeSignupEmail(form, language) {
+    const t = copy[language];
+    const data = new FormData(form);
+    const value = name => String(data.get(name) || '').trim();
+    const model = value('device') === 'newer' ? value('device_model') : value('device');
+    const body = [t.emailIntro, '', `${t.emailName}: ${value('name')}`, `${t.emailAddress}: ${value('email')}`,
+      `${t.emailDevice}: ${model}`, '', `${t.emailMessage}:`, value('message')].join('\r\n');
+    return {
+      href: `mailto:qiang@hula.ai?subject=${encodeURIComponent(t.subject)}&body=${encodeURIComponent(body)}`,
+      draft: `To: qiang@hula.ai\r\nSubject: ${t.subject}\r\n\r\n${body}`,
+    };
+  }
 
   function updateEligibility(section) {
     const t = copy[section.dataset.language || 'en'];
@@ -85,13 +108,7 @@
         <h2 id="testflight-title" data-copy="title"></h2>
         <p data-copy="intro"></p>
         <p class="diary-signup-requirements" data-copy="requirements"></p>
-        <form action="https://formsubmit.co/7cb1f8977682e3aa144a50957f96405a" method="POST">
-          <input type="hidden" name="_subject" value="New Diary Companion iOS TestFlight tester">
-          <input type="hidden" name="_template" value="table">
-          <input type="hidden" name="_captcha" value="false">
-          <input type="hidden" name="product" value="Diary Companion — iOS TestFlight">
-          <input type="hidden" name="language" value="">
-          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <form>
           <label for="diary-beta-name" data-copy="name"></label>
           <input id="diary-beta-name" name="name" type="text" autocomplete="name" maxlength="150">
           <label for="diary-beta-email" data-copy="email"></label>
@@ -116,14 +133,27 @@
           <p id="diary-beta-privacy" class="diary-signup-note" data-copy="privacy"></p>
           <button class="primary-button" type="submit" aria-describedby="diary-beta-privacy" data-copy="submit"></button>
         </form>
+        <div class="diary-email-fallback" hidden>
+          <p role="status" data-copy="emailReady"></p>
+          <label for="diary-email-draft" data-copy="draftLabel"></label>
+          <textarea id="diary-email-draft" rows="9" readonly></textarea>
+        </div>
         <a class="diary-signup-contact" href="mailto:qiang@hula.ai?subject=Diary%20Companion%20TestFlight" data-copy="contact"></a>`;
       closing.append(section);
       section.querySelector('[name="device"]').addEventListener('change', () => updateEligibility(section));
+      section.querySelector('form').addEventListener('submit', event => {
+        event.preventDefault();
+        updateEligibility(section);
+        if (!event.currentTarget.reportValidity()) return;
+        const email = composeSignupEmail(event.currentTarget, section.dataset.language);
+        section.querySelector('#diary-email-draft').value = email.draft;
+        section.querySelector('.diary-email-fallback').hidden = false;
+        window.location.href = email.href;
+      });
     }
     if (section.dataset.language !== language) {
       section.dataset.language = language;
       section.querySelectorAll('[data-copy]').forEach(node => { node.textContent = t[node.dataset.copy]; });
-      section.querySelector('[name="language"]').value = language;
       updateEligibility(section);
     }
     const closingLink = closing.querySelector(':scope > a.primary-button');
