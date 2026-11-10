@@ -21,14 +21,14 @@
   </url>
   <url>
     <loc>https://www.bytedance.ai/diary/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/"/>
   </url>
   <url>
     <loc>https://www.bytedance.ai/zh/diary/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/"/>
@@ -93,5 +93,33 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/tuesdays-with-morrie.html"/>
     <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/tuesdays-with-morrie.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/tuesdays-with-morrie.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/diary/blog/a-day-in-different-lives.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/a-day-in-different-lives.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/a-day-in-different-lives.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/a-day-in-different-lives.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary/blog/a-day-in-different-lives.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/a-day-in-different-lives.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/a-day-in-different-lives.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/a-day-in-different-lives.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/diary/blog/when-the-day-feels-heavy.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/when-the-day-feels-heavy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/when-the-day-feels-heavy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/when-the-day-feels-heavy.html"/>
+  </url>
+  <url>
+    <loc>https://www.bytedance.ai/zh/diary/blog/when-the-day-feels-heavy.html</loc>
+    <lastmod>2026-11-09</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bytedance.ai/diary/blog/when-the-day-feels-heavy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://www.bytedance.ai/zh/diary/blog/when-the-day-feels-heavy.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bytedance.ai/diary/blog/when-the-day-feels-heavy.html"/>
   </url>
 </urlset>
